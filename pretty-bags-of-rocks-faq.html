@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Shipping &amp; FAQ — Pretty Bags of Rocks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #14294d;
+        --navy-deep: #0d1d38;
+        --gold: #c9a227;
+        --gold-bright: #e6c95c;
+        --cream: #f7f5ef;
+        --card: #ffffff;
+        --ink: #22304a;
+        --muted: #5d6879;
+        --line: #e3ddcb;
+        --header-bg: #ffffff;
+        --shadow: 0 10px 30px rgba(20, 41, 77, 0.08);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --navy: #d9c98a;
+          --cream: #0b1830;
+          --card: #152a4e;
+          --ink: #ece7d8;
+          --muted: #aeb8c9;
+          --line: #2c4066;
+          --header-bg: #0d1d38;
+          --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "Jost", "Segoe UI", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, .serif {
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        font-weight: 500;
+        color: var(--navy);
+        margin: 0;
+      }
+      a { color: inherit; }
+
+      /* ---------- Announcement bar ---------- */
+      .announce {
+        background: #14294d;
+        color: #f3ead0;
+        text-align: center;
+        font-size: 0.82rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 0.6rem 1rem;
+      }
+      .announce .dot { color: var(--gold); margin: 0 0.35em; }
+
+      /* ---------- Header ---------- */
+      .site-header {
+        background: var(--header-bg);
+        border-bottom: 1px solid var(--line);
+      }
+      .header-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 1.1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        text-decoration: none;
+        margin-right: auto;
+      }
+      .brand .badge { flex: 0 0 auto; display: block; }
+      .brand-name {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.45rem;
+        line-height: 1.1;
+        color: var(--navy);
+        letter-spacing: 0.02em;
+      }
+      .brand-sub {
+        display: block;
+        font-family: "Jost", sans-serif;
+        font-size: 0.68rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-top: 0.25rem;
+      }
+      nav.main-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      nav.main-nav a {
+        text-decoration: none;
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: var(--ink);
+        padding-bottom: 0.3rem;
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+      nav.main-nav a:hover { color: var(--gold); }
+      nav.main-nav a[aria-current="page"] {
+        color: var(--navy);
+        border-bottom-color: var(--gold);
+        font-weight: 500;
+      }
+
+      /* ---------- Page layout ---------- */
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 3rem 1.25rem 4.5rem;
+      }
+      .page-head { text-align: center; margin-bottom: 2.75rem; }
+      .page-head .rule {
+        width: 64px;
+        height: 1px;
+        background: var(--gold);
+        margin: 0 auto 1.4rem;
+        position: relative;
+      }
+      .page-head .rule::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 7px;
+        height: 7px;
+        background: var(--gold);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .page-head h1 {
+        font-size: clamp(2.4rem, 6vw, 3.4rem);
+        line-height: 1.05;
+        letter-spacing: 0.01em;
+      }
+      .page-head p {
+        max-width: 34rem;
+        margin: 1rem auto 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      section.block { margin-bottom: 3.25rem; }
+      .section-title {
+        font-size: 1.9rem;
+        margin-bottom: 0.4rem;
+      }
+      .section-lede {
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+        max-width: 38rem;
+      }
+
+      /* ---------- Shipping card ---------- */
+      .ship-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        box-shadow: var(--shadow);
+        padding: 2rem 2.25rem;
+      }
+      .ship-card p { margin: 0 0 1rem; }
+      .ship-card p:last-child { margin-bottom: 0; }
+      .ship-facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 1.75rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid var(--line);
+      }
+      .ship-fact .fact-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 0.35rem;
+      }
+      .ship-fact .fact-value {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        color: var(--navy);
+      }
+      .ship-fact .fact-note {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-top: 0.2rem;
+      }
+
+      /* ---------- FAQ accordion ---------- */
+      .faq-list {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .faq-item + .faq-item { border-top: 1px solid var(--line); }
+      .faq-q {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+        padding: 1.35rem 1.75rem;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--navy);
+      }
+      .faq-q:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: -2px;
+      }
+      .faq-q .chev {
+        flex: 0 0 auto;
+        width: 30px;
+        height: 30px;
+        border: 1px solid var(--gold);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+      .faq-q .chev svg { display: block; }
+      .faq-item.open .faq-q .chev {
+        transform: rotate(45deg);
+        background: rgba(201, 162, 39, 0.12);
+      }
+      .faq-a {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s ease;
+      }
+      .faq-item.open .faq-a { grid-template-rows: 1fr; }
+      .faq-a > div { overflow: hidden; }
+      .faq-a p {
+        margin: 0;
+        padding: 0 1.75rem 1.5rem;
+        color: var(--ink);
+        max-width: 42rem;
+      }
+      .faq-a .price-line {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.15rem;
+        color: var(--navy);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .faq-a, .faq-q .chev { transition: none; }
+        html { scroll-behavior: auto; }
+      }
+
+      /* ---------- Closing note ---------- */
+      .closing {
+        text-align: center;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 2.25rem 1.5rem;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+      .closing h2 { font-size: 1.7rem; margin-bottom: 0.5rem; }
+      .closing p { color: var(--muted); margin: 0 auto 1.4rem; max-width: 30rem; }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: #14294d;
+        color: #f7f5ef;
+        font-size: 0.82rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 0.85rem 2rem;
+        border-radius: 3px;
+        border: 1px solid #14294d;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      .btn:hover { background: transparent; color: var(--navy); }
+
+      /* ---------- Footer ---------- */
+      footer {
+        background: #14294d;
+        color: #cfd8e8;
+        margin-top: 1rem;
+      }
+      .footer-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 2.75rem 1.25rem 2.25rem;
+        text-align: center;
+      }
+      .footer-inner .badge { margin: 0 auto 1.25rem; display: block; }
+      footer nav ul {
+        list-style: none;
+        margin: 0 0 1.5rem;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      footer nav a {
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #cfd8e8;
+      }
+      footer nav a:hover { color: var(--gold-bright); }
+      .footer-origin {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-style: italic;
+        font-size: 1.05rem;
+        color: #9fb0ca;
+        margin: 0 0 1.75rem;
+      }
+      .copyright {
+        font-size: 0.8rem;
+        color: #8fa1bd;
+        border-top: 1px solid rgba(201, 162, 39, 0.35);
+        padding-top: 1.5rem;
+        margin: 0;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .site-header .badge {
+          background: #f7f5ef;
+          border-radius: 50%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner { justify-content: center; text-align: center; }
+        .brand { margin-right: 0; }
+        nav.main-nav ul { justify-content: center; gap: 1.4rem; }
+        .ship-card { padding: 1.5rem 1.25rem; }
+        .ship-facts { grid-template-columns: 1fr; gap: 1.1rem; }
+        .faq-q { padding: 1.15rem 1.25rem; font-size: 1.18rem; }
+        .faq-a p { padding: 0 1.25rem 1.3rem; }
+        main { padding-top: 2.25rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="announce">
+      Free shipping anywhere in Canada — on every order.<span class="dot">·</span>Tracking included.
+    </div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Pretty Bags of Rocks — Home">
+          <!-- Circular badge logo: double gold ring, arched serif lettering, fine-line faceted rock -->
+          <svg class="badge" width="86" height="86" viewBox="0 0 120 120" role="img" aria-label="Pretty Bags of Rocks badge logo">
+            <defs>
+              <path id="badge-top" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" />
+              <path id="badge-top-arc" d="M 16,60 A 44,44 0 0,1 104,60" />
+              <path id="badge-bottom-arc" d="M 20.5,60 A 39.5,39.5 0 0,0 99.5,60" />
+            </defs>
+            <circle cx="60" cy="60" r="57" fill="none" stroke="#C9A227" stroke-width="1.6" />
+            <circle cx="60" cy="60" r="52.5" fill="none" stroke="#C9A227" stroke-width="0.9" />
+            <text font-family="'Cormorant Garamond', Georgia, serif" font-size="12.5" font-weight="600" letter-spacing="2.5" fill="#14294D">
+              <textPath href="#badge-top-arc" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath>
+            </text>
+            <text font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="600" letter-spacing="3" fill="#14294D">
+              <textPath href="#badge-bottom-arc" startOffset="50%" text-anchor="middle">OF ROCKS</textPath>
+            </text>
+            <!-- Fine-line faceted rock, navy linework -->
+            <g fill="none" stroke="#14294D" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M42 66 L48 50 L60 44 L73 49 L79 63 L70 76 L51 77 Z" />
+              <path d="M48 50 L60 58 L73 49" />
+              <path d="M60 58 L60 44" />
+              <path d="M60 58 L51 77" />
+              <path d="M60 58 L70 76" />
+              <path d="M42 66 L60 58 L79 63" />
+            </g>
+          </svg>
+          <span>
+            <span class="brand-name">Pretty Bags<br />of Rocks</span>
+            <span class="brand-sub">Hand-Polished Stones</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h1>Shipping &amp; FAQ</h1>
+        <p>Everything you need to know about ordering, delivery, and what arrives at your door.</p>
+      </div>
+
+      <section class="block" aria-labelledby="shipping-title">
+        <h2 class="section-title" id="shipping-title">Shipping</h2>
+        <p class="section-lede">
+          Every order ships free, anywhere in Canada — no minimums, no surprises at checkout.
+        </p>
+        <div class="ship-card">
+          <p>
+            Shipping is <strong>free anywhere in Canada on every order</strong>, and
+            <strong>tracking is always included</strong>, so you can follow your stones from our door
+            to yours. Orders are packed with care and shipped from
+            <strong>Saskatoon, Saskatchewan</strong> via <strong>Canada Post</strong>.
+          </p>
+          <p>
+            Once your order is on its way, you'll receive your tracking details so you can watch it
+            travel. Delivery typically takes <strong>2–9 business days</strong>, depending on how far
+            your parcel is headed.
+          </p>
+          <div class="ship-facts">
+            <div class="ship-fact">
+              <div class="fact-label">Cost</div>
+              <div class="fact-value">Free</div>
+              <div class="fact-note">On every order, Canada-wide</div>
+            </div>
+            <div class="ship-fact">
+              <div class="fact-label">Carrier</div>
+              <div class="fact-value">Canada Post</div>
+              <div class="fact-note">From Saskatoon, Saskatchewan</div>
+            </div>
+            <div class="ship-fact">
+              <div class="fact-label">Tracking</div>
+              <div class="fact-value">Included</div>
+              <div class="fact-note">On every single order</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="faq-title">
+        <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+        <p class="section-lede">Tap a question to see the answer.</p>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+                How much is shipping?
+                <span class="chev" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+              <div>
+                <p>
+                  Shipping is <strong>free</strong> — anywhere in Canada, on every order. Tracking is
+                  included too, at no extra cost.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                How long does delivery take?
+                <span class="chev" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+              <div>
+                <p>
+                  Orders ship from Saskatoon, Saskatchewan via Canada Post. Delivery typically takes
+                  <strong>roughly 2–9 business days</strong>, depending on how far you're located from
+                  us — closer addresses arrive sooner, and cross-country parcels take a little longer.
+                  Your tracking number lets you follow your order the whole way.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                When will the large single rocks be available?
+                <span class="chev" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+              <div>
+                <p>
+                  They're <strong>coming soon</strong>. Our individual hand-polished stones are being
+                  prepared in three sizes:
+                </p>
+                <p class="price-line">Medium — $65 &nbsp;·&nbsp; Large — $95 &nbsp;·&nbsp; Showpiece — $145</p>
+                <p>
+                  Each one is a single, one-of-a-kind stone, polished by hand. Keep an eye on the shop —
+                  they'll be listed as soon as the first pieces are ready.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                How do I pay?
+                <span class="chev" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+              <div>
+                <p>
+                  Payment is handled through <strong>secure checkout with Square</strong>. When you're
+                  ready to order, you'll be taken to Square's checkout to complete your purchase safely
+                  — your payment details never touch this website.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                What exactly is in the Small Bag?
+                <span class="chev" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+              <div>
+                <p>
+                  The Small Bag is a <strong>curated bag of hand-polished rocks</strong> — each stone
+                  collected, tumbled, and polished by hand, then gathered into a bag ready to display,
+                  gift, or treasure. It's <strong>$45 CAD</strong>, with free shipping and tracking
+                  included anywhere in Canada.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="closing">
+        <h2>Ready to find your stones?</h2>
+        <p>Browse the shop and pick out a bag of hand-polished rocks — shipping is on us.</p>
+        <a class="btn" href="shop.html">Visit the Shop</a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <svg class="badge" width="72" height="72" viewBox="0 0 120 120" role="img" aria-label="Pretty Bags of Rocks badge logo">
+          <defs>
+            <path id="badge-top-arc-f" d="M 16,60 A 44,44 0 0,1 104,60" />
+            <path id="badge-bottom-arc-f" d="M 20.5,60 A 39.5,39.5 0 0,0 99.5,60" />
+          </defs>
+          <circle cx="60" cy="60" r="57" fill="none" stroke="#C9A227" stroke-width="1.6" />
+          <circle cx="60" cy="60" r="52.5" fill="none" stroke="#C9A227" stroke-width="0.9" />
+          <text font-family="'Cormorant Garamond', Georgia, serif" font-size="12.5" font-weight="600" letter-spacing="2.5" fill="#F7F5EF">
+            <textPath href="#badge-top-arc-f" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath>
+          </text>
+          <text font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="600" letter-spacing="3" fill="#F7F5EF">
+            <textPath href="#badge-bottom-arc-f" startOffset="50%" text-anchor="middle">OF ROCKS</textPath>
+          </text>
+          <g fill="none" stroke="#F7F5EF" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M42 66 L48 50 L60 44 L73 49 L79 63 L70 76 L51 77 Z" />
+            <path d="M48 50 L60 58 L73 49" />
+            <path d="M60 58 L60 44" />
+            <path d="M60 58 L51 77" />
+            <path d="M60 58 L70 76" />
+            <path d="M42 66 L60 58 L79 63" />
+          </g>
+        </svg>
+        <nav aria-label="Footer navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </nav>
+        <p class="footer-origin">Hand-polished in Saskatoon, Saskatchewan</p>
+        <p class="copyright">© 2026 Pretty Bags of Rocks. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var items = document.querySelectorAll(".faq-item");
+        items.forEach(function (item) {
+          var btn = item.querySelector(".faq-q");
+          btn.addEventListener("click", function () {
+            var isOpen = item.classList.contains("open");
+            items.forEach(function (other) {
+              other.classList.remove("open");
+              other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+            });
+            if (!isOpen) {
+              item.classList.add("open");
+              btn.setAttribute("aria-expanded", "true");
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

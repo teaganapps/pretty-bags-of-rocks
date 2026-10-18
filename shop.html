@@ -189,38 +189,10 @@
       }
       .btn:hover { background: var(--gold); border-color: var(--gold); color: #14294d; }
       .btn.small { padding: 0.62rem 1.3rem; font-size: 0.8rem; }
-      .menu-btn {
-        display: none;
-        background: none;
-        border: 1px solid var(--line);
-        border-radius: 0;
-        width: 44px;
-        height: 44px;
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: var(--navy);
-      }
       @media (max-width: 860px) {
-        nav.main {
-          display: none;
-          position: absolute;
-          left: 20px;
-          right: 20px;
-          top: 126px;
-          background: var(--card);
-          border: 1px solid var(--line);
-          border-radius: 0;
-          padding: 16px;
-          flex-direction: column;
-          align-items: stretch;
-          box-shadow: var(--shadow);
-        }
-        nav.main.open { display: flex; }
-        nav.main a { padding: 10px 8px; border-bottom: 1px solid var(--line); }
-        nav.main a:last-child { border-bottom: none; }
-        .menu-btn { display: inline-flex; }
+        .header-inner { justify-content: center; }
+        .brand { margin-right: 0; }
+        nav.main { width: 100%; justify-content: center; }
         .header-cta { display: none; }
         .brand-tag { display: none; }
       }
@@ -461,50 +433,74 @@
       .ship-note h2 { font-size: 1.7rem; font-weight: 600; }
       .ship-note p { color: var(--ink-soft); max-width: 36rem; margin: 0.6rem auto 0; }
 
-      /* ---------- Footer ---------- */
+      /* ---------- Footer (matches the home page footer exactly) ---------- */
       footer {
         background: var(--footer-bg);
         color: var(--footer-ink);
+        padding: 2.8rem 0 2.2rem;
         margin-top: 0;
       }
       .footer-inner {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 2.8rem 1.25rem 2.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 0;
       }
-      .footer-inner .logo { width: 92px; height: 92px; }
-      footer nav {
+      .logo-mark.on-dark { color: var(--footer-ink); }
+      .footer-brand {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        letter-spacing: 0.04em;
+        color: var(--footer-ink);
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+      footer p {
+        font-size: 0.92rem;
+        color: rgba(238, 240, 245, 0.65);
+        max-width: 520px;
+        margin: 0;
+        margin-top: 0.6rem;
+        line-height: 1.6;
+      }
+      @media (prefers-color-scheme: dark) {
+        footer p { color: rgba(223, 230, 242, 0.6); }
+      }
+      .footer-links {
         display: flex;
         justify-content: center;
         gap: 0.4rem;
         flex-wrap: wrap;
-        margin: 1.4rem 0 1.2rem;
+        margin: 1.4rem 0 0.4rem;
       }
-      footer nav a {
+      .footer-links a {
         text-decoration: none;
         font-size: 0.82rem;
         letter-spacing: 0.2em;
         text-transform: uppercase;
+        font-weight: 400;
         padding: 0.4rem 0.8rem;
         color: var(--footer-ink);
       }
-      footer nav a:hover { color: var(--gold); }
-      .copyright {
+      .footer-links a:hover { color: var(--gold); }
+      .footer-bottom {
+        border-top: 1px solid rgba(238, 240, 245, 0.18);
+        margin-top: 1.6rem;
+        padding-top: 1.2rem;
         font-size: 0.88rem;
         color: rgba(238, 240, 245, 0.65);
-        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
       }
       @media (prefers-color-scheme: dark) {
-        .copyright { color: rgba(223, 230, 242, 0.6); }
+        .footer-bottom { color: rgba(223, 230, 242, 0.6); }
       }
-
-      /* Logo text colours follow theme */
-      .logo .logo-text { fill: #14294d; }
-      .logo .logo-lines { stroke: #14294d; }
-      .logo .logo-ring { stroke: #c9a227; fill: none; }
-      footer .logo .logo-text { fill: #eef0f5; }
-      footer .logo .logo-lines { stroke: #eef0f5; }
+      @media (max-width: 560px) {
+        .footer-bottom { justify-content: center; text-align: center; }
+      }
 
       @media (max-width: 760px) {
         .product { grid-template-columns: 1fr; }
@@ -544,7 +540,6 @@
             <span class="brand-tag">Polished rocks, gathered in small bags — shipped anywhere in Canada.</span>
           </span>
         </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
         <nav class="main" id="mainNav" aria-label="Main">
           <a href="index.html">Home</a>
           <a href="shop.html" aria-current="page">Shop</a>
@@ -689,60 +684,39 @@
     </main>
 
     <footer>
-      <div class="footer-inner">
-        <svg class="logo" viewBox="0 0 200 200" role="img" aria-label="Pretty Bags of Rocks badge logo">
-          <defs>
-            <path id="ftr-arc-top" d="M 24,100 A 76,76 0 0 1 176,100" fill="none" />
-            <path id="ftr-arc-bottom" d="M 30,100 A 70,70 0 0 0 170,100" fill="none" />
-          </defs>
-          <circle class="logo-ring" cx="100" cy="100" r="97" stroke-width="2.5" />
-          <circle class="logo-ring" cx="100" cy="100" r="90" stroke-width="1" />
-          <text class="logo-text" font-family="'Cormorant Garamond', Georgia, serif" font-size="19.5" font-weight="600" letter-spacing="3.5">
-            <textPath href="#ftr-arc-top" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath>
-          </text>
-          <text class="logo-text" font-family="'Cormorant Garamond', Georgia, serif" font-size="19.5" font-weight="600" letter-spacing="3.5">
-            <textPath href="#ftr-arc-bottom" startOffset="50%" text-anchor="middle">OF ROCKS</textPath>
-          </text>
-          <g class="logo-lines" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-            <polygon points="100,64 126,84 118,116 100,130 80,116 72,84" />
-            <polyline points="72,84 88,96 100,64" />
-            <polyline points="126,84 110,98 100,64" />
-            <polyline points="88,96 110,98 100,130" />
-            <polyline points="88,96 80,116" />
-            <polyline points="110,98 118,116" />
-          </g>
-        </svg>
-        <nav aria-label="Footer navigation">
-          <a href="index.html">Home</a>
-          <a href="shop.html">Shop</a>
-          <a href="about.html">About</a>
-          <a href="faq.html">FAQ</a>
-        </nav>
-        <p class="copyright">© 2026 Pretty Bags of Rocks · Saskatoon, Saskatchewan</p>
+      <div class="wrap">
+        <div class="footer-inner">
+          <svg class="logo-mark on-dark" width="92" height="92" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <circle class="logo-ring" cx="100" cy="100" r="95" />
+            <circle class="logo-ring" cx="100" cy="100" r="63" />
+            <path id="arcTopF" d="M37.7,143.6 A76,76 0 1,1 162.3,143.6" fill="none" />
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="208" lengthAdjust="spacing"><textPath href="#arcTopF" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath></text>
+            <path id="arcBotF" d="M27.9,150.4 A88,88 0 0,0 172.1,150.4" fill="none" />
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="140" lengthAdjust="spacing"><textPath href="#arcBotF" startOffset="50%" text-anchor="middle">OF ROCKS</textPath></text>
+            <g class="logo-rock">
+              <path d="M63 118 L74 84 L96 66 L122 72 L138 96 L132 122 L104 134 L78 130 Z" />
+              <path d="M74 84 L100 99 L96 66" />
+              <path d="M100 99 L122 72" />
+              <path d="M100 99 L104 134" />
+              <path d="M100 99 L132 122" />
+            </g>
+          </svg>
+          <div class="footer-brand">Pretty Bags of Rocks</div>
+          <p>Polished rocks, gathered in small bags — shipped anywhere in Canada. Pretty rocks. Honest bags. Tumbled smooth, packed by hand in Saskatoon.</p>
+          <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>Pretty Bags of Rocks • Saskatoon, Saskatchewan • Shipping anywhere in Canada</span>
+          <span>Small bags $45 &nbsp;•&nbsp; Large singles from $65 &nbsp;•&nbsp; Free shipping &nbsp;•&nbsp; Tracking included</span>
+        </div>
       </div>
     </footer>
 
-    <script>
-      (function () {
-        // Mobile nav
-        var menuBtn = document.getElementById("menuBtn");
-        var nav = document.getElementById("mainNav");
-        if (menuBtn && nav) {
-          menuBtn.addEventListener("click", function () {
-            var open = nav.classList.toggle("open");
-            menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-            menuBtn.textContent = open ? "✕" : "☰";
-          });
-          nav.addEventListener("click", function (e) {
-            if (e.target.tagName === "A") {
-              nav.classList.remove("open");
-              menuBtn.textContent = "☰";
-              menuBtn.setAttribute("aria-expanded", "false");
-            }
-          });
-        }
-      })();
-    </script>
     <script>
       (function () {
         var PRICE = 45;

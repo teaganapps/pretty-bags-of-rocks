@@ -58,75 +58,171 @@
       a { color: inherit; }
       img { max-width: 100%; display: block; }
 
-      /* ---------- Announcement bar ---------- */
-      .announcement {
-        background: var(--navy);
-        color: var(--cream);
+      /* ---------- Announcement bar (matches home page) ---------- */
+      .announce {
+        background: #0E1F3C;
+        color: #F3EAD2;
         text-align: center;
-        font-size: 0.82rem;
-        letter-spacing: 0.14em;
+        font-size: .82rem;
+        font-weight: 400;
+        letter-spacing: .14em;
         text-transform: uppercase;
-        padding: 0.65rem 1rem;
+        padding: .55rem 1rem;
+        line-height: 1.45;
       }
-      .announcement .gold { color: var(--gold-soft); }
+      @media (prefers-color-scheme: dark) {
+        .announce { background: #050C18; }
+      }
 
-      /* ---------- Header ---------- */
+      /* ---------- Header (matches home page) ---------- */
+      .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
       header.site {
-        background: var(--header-bg);
-        border-bottom: 1px solid var(--hairline);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #FBF9F3;
+        border-bottom: 1px solid #E3DDCC;
       }
       .header-inner {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 1.1rem 1.5rem;
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        justify-content: space-between;
+        gap: 1.25rem;
+        padding: 1.1rem 0;
         flex-wrap: wrap;
       }
       .brand {
+        text-decoration: none;
         display: flex;
+        flex-direction: row;
         align-items: center;
         gap: 1rem;
-        text-decoration: none;
         margin-right: auto;
       }
-      .brand .wordmark {
+      .brand-col { display: flex; flex-direction: column; gap: 1px; }
+      .logo-mark { flex-shrink: 0; color: #14294D; }
+      .logo-text {
         font-family: "Cormorant Garamond", Georgia, serif;
-        font-size: 1.65rem;
         font-weight: 600;
-        color: var(--heading);
-        line-height: 1.1;
+        fill: currentColor;
       }
-      .brand .wordmark small {
-        display: block;
-        font-family: "Jost", sans-serif;
-        font-weight: 400;
-        font-size: 0.68rem;
-        letter-spacing: 0.32em;
+      .logo-ring { fill: none; stroke: #C9A227; stroke-width: 1.1; }
+      .logo-rock {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .brand-name {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+        letter-spacing: .04em;
+        font-size: 1.65rem;
+        line-height: 1.1;
+        color: #14294D;
+      }
+      .brand-tag {
+        font-size: .72rem;
+        letter-spacing: .32em;
         text-transform: uppercase;
-        color: var(--gold);
-        margin-top: 0.3rem;
+        color: #C9A227;
+        font-weight: 500;
+        margin-top: .2rem;
+        line-height: 1.5;
       }
       nav.main {
         display: flex;
-        gap: 2.1rem;
+        align-items: center;
+        gap: .4rem;
         flex-wrap: wrap;
       }
       nav.main a {
         text-decoration: none;
-        font-size: 0.86rem;
-        font-weight: 400;
-        letter-spacing: 0.22em;
+        font-size: .85rem;
+        letter-spacing: .18em;
         text-transform: uppercase;
-        color: var(--heading);
-        padding: 0.35rem 0;
+        font-weight: 400;
+        padding: .5rem .85rem;
+        color: #22304A;
         border-bottom: 2px solid transparent;
+        white-space: nowrap;
       }
-      nav.main a:hover { color: var(--gold); }
-      nav.main a.active {
-        color: var(--gold);
-        border-bottom-color: var(--gold);
+      nav.main a:hover { color: #C9A227; }
+      nav.main a[aria-current="page"] {
+        color: #14294D;
+        border-bottom-color: #C9A227;
+        font-weight: 500;
+      }
+      header.site .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid #14294D;
+        background: #14294D;
+        color: #F7F2DF;
+        font-weight: 500;
+        font-size: .88rem;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        padding: 1rem 2.4rem;
+        border-radius: 0;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+      }
+      header.site .btn.small { padding: .62rem 1.3rem; font-size: .8rem; }
+      nav.main a.btn { color: #F7F2DF !important; border-bottom: none; }
+      nav.main a.btn:hover { color: #14294D !important; background: #C9A227; border-color: #C9A227; }
+      .menu-btn {
+        display: none;
+        background: none;
+        border: 1px solid #E3DDCC;
+        border-radius: 0;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #14294D;
+      }
+      @media (prefers-color-scheme: dark) {
+        header.site { background: #0A1526; border-bottom-color: #2C3D5C; }
+        .logo-mark { color: #DCE5F2; }
+        .brand-name { color: #DCE5F2; }
+        nav.main a { color: #E8ECF4; }
+        nav.main a[aria-current="page"] { color: #DCE5F2; }
+        .menu-btn { border-color: #2C3D5C; color: #DCE5F2; }
+        header.site .btn { background: #0A1526; border-color: #0A1526; }
+        nav.main a.btn:hover { background: #C9A227; border-color: #C9A227; }
+      }
+      @media (max-width: 860px) {
+        nav.main {
+          display: none;
+          position: absolute;
+          left: 20px;
+          right: 20px;
+          top: 126px;
+          background: #FFFFFF;
+          border: 1px solid #E3DDCC;
+          border-radius: 0;
+          padding: 16px;
+          flex-direction: column;
+          align-items: stretch;
+          box-shadow: var(--shadow);
+        }
+        nav.main.open { display: flex; }
+        nav.main a { padding: 10px 8px; border-bottom: 1px solid #E3DDCC; }
+        nav.main a:last-child { border-bottom: none; }
+        .menu-btn { display: inline-flex; }
+        .header-cta { display: none; }
+        .brand-tag { display: none; }
+      }
+      @media (prefers-color-scheme: dark) and (max-width: 860px) {
+        nav.main { background: #16263F; border-color: #2C3D5C; }
+        nav.main a { border-bottom-color: #2C3D5C; }
       }
 
       /* ---------- Badge logo ---------- */
@@ -338,49 +434,44 @@
 
       @media (max-width: 760px) {
         .story-grid { grid-template-columns: 1fr; }
-        .header-inner { justify-content: center; }
-        .brand { margin-right: 0; }
-        nav.main { justify-content: center; gap: 1.4rem; }
         .story-photo img { min-height: 240px; }
       }
     </style>
   </head>
   <body>
 
-    <div class="announcement">Free shipping anywhere in Canada <span class="gold">—</span> on every order. Tracking included.</div>
+    <div class="announce">Free shipping anywhere in Canada — on every order. Tracking included.</div>
 
     <header class="site">
-      <div class="header-inner">
+      <div class="wrap header-inner">
         <a class="brand" href="index.html" aria-label="Pretty Bags of Rocks — home">
-          <svg class="badge" width="86" height="86" viewBox="0 0 200 200" role="img" aria-label="Pretty Bags of Rocks badge logo">
-            <defs>
-              <path id="arcTopH" d="M 26,100 A 74,74 0 0 1 174,100" fill="none" />
-              <path id="arcBotH" d="M 17,100 A 83,83 0 0 0 183,100" fill="none" />
-            </defs>
-            <circle class="ring" cx="100" cy="100" r="97" />
-            <circle class="ring-inner" cx="100" cy="100" r="89" />
-            <text font-size="20.5" letter-spacing="3.5">
-              <textPath href="#arcTopH" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath>
-            </text>
-            <text font-size="20.5" letter-spacing="3.5">
-              <textPath href="#arcBotH" startOffset="50%" text-anchor="middle">OF ROCKS</textPath>
-            </text>
-            <g class="rock-lines">
-              <path d="M100 63 L129 83 L119 125 L100 139 L81 125 L71 83 Z" />
-              <path d="M71 83 H129" />
-              <path d="M100 63 L89 83 L100 139" />
-              <path d="M100 63 L111 83 L100 139" />
-              <path d="M89 83 L81 125" />
-              <path d="M111 83 L119 125" />
+          <svg class="logo-mark" width="84" height="84" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <circle class="logo-ring" cx="100" cy="100" r="95"/>
+            <circle class="logo-ring" cx="100" cy="100" r="63"/>
+            <path id="arcTopH" d="M37.7,143.6 A76,76 0 1,1 162.3,143.6" fill="none"/>
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="208" lengthAdjust="spacing"><textPath href="#arcTopH" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath></text>
+            <path id="arcBotH" d="M27.9,150.4 A88,88 0 0,0 172.1,150.4" fill="none"/>
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="140" lengthAdjust="spacing"><textPath href="#arcBotH" startOffset="50%" text-anchor="middle">OF ROCKS</textPath></text>
+            <g class="logo-rock">
+              <path d="M63 118 L74 84 L96 66 L122 72 L138 96 L132 122 L104 134 L78 130 Z"/>
+              <path d="M74 84 L100 99 L96 66"/>
+              <path d="M100 99 L122 72"/>
+              <path d="M100 99 L104 134"/>
+              <path d="M100 99 L132 122"/>
             </g>
           </svg>
-          <span class="wordmark">Pretty Bags of Rocks<small>Saskatoon, Saskatchewan</small></span>
+          <span class="brand-col">
+            <span class="brand-name">Pretty Bags of Rocks</span>
+            <span class="brand-tag">Polished rocks, gathered in small bags — shipped anywhere in Canada.</span>
+          </span>
         </a>
-        <nav class="main" aria-label="Main navigation">
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="main" id="mainNav" aria-label="Main">
           <a href="index.html">Home</a>
           <a href="shop.html">Shop</a>
-          <a href="about.html" class="active" aria-current="page">About</a>
+          <a href="about.html" aria-current="page">About</a>
           <a href="faq.html">FAQ</a>
+          <a href="shop.html" class="btn small header-cta">Shop the Bags</a>
         </nav>
       </div>
     </header>
@@ -491,5 +582,22 @@
       </div>
     </footer>
 
+    <script>
+      (function(){
+        // Mobile nav
+        var menuBtn = document.getElementById('menuBtn');
+        var nav = document.getElementById('mainNav');
+        if(menuBtn && nav){
+          menuBtn.addEventListener('click', function(){
+            var open = nav.classList.toggle('open');
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menuBtn.textContent = open ? '✕' : '☰';
+          });
+          nav.addEventListener('click', function(e){
+            if(e.target.tagName === 'A'){ nav.classList.remove('open'); menuBtn.textContent = '☰'; menuBtn.setAttribute('aria-expanded','false'); }
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

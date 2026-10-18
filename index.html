@@ -33,6 +33,7 @@
     --radius-s:0px;
     --radius-m:0px;
     --radius-l:0px;
+    color-scheme:light;
   }
   @media (prefers-color-scheme: dark){
     :root{
@@ -49,13 +50,14 @@
       --footer-bg:#081120;
       --footer-ink:#DFE6F2;
       --shadow:0 18px 40px rgba(0,0,0,.45);
+      color-scheme:dark;
     }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
-  body{margin:0; font-family:"Jost", "Segoe UI", system-ui, sans-serif; font-weight:300; background:var(--bg); color:var(--ink); line-height:1.6; font-size:17px; -webkit-font-smoothing:antialiased}
-  h1,h2,h3,.serif{font-family:"Cormorant Garamond", Georgia, serif; color:var(--navy); line-height:1.08; margin:0}
+  body{margin:0; font-family:"Jost", "Segoe UI", system-ui, sans-serif; font-weight:300; background:var(--bg); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:"Cormorant Garamond", Georgia, serif; color:var(--navy); margin:0}
   p{margin:0}
   a{color:inherit}
   img{display:block; max-width:100%}
@@ -70,10 +72,9 @@
   /* Logo — circular badge: delicate serif word-ring around a fine-line rock */
   .logo-mark{flex-shrink:0; color:var(--navy)}
   .logo-mark.on-dark{color:var(--footer-ink)}
-  .logo-text{font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; fill:currentColor}
-  .logo-ring{fill:none; stroke:var(--gold); stroke-width:1.1}
-  .logo-dia{fill:var(--gold)}
-  .logo-rock{fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round}
+  .logo-mark .logo-text{font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; fill:currentColor}
+  .logo-mark .logo-ring{fill:none; stroke:var(--gold); stroke-width:1.1}
+  .logo-mark .logo-rock{fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round}
   .badge-hero{width:148px; height:148px; flex-shrink:0}
   .brand-name{font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; letter-spacing:.04em; font-size:1.65rem; line-height:1.1; color:var(--navy)}
   .brand-tag{font-size:.72rem; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-top:.2rem; line-height:1.5}
@@ -94,20 +95,18 @@
   .btn[disabled]:hover, .btn.is-soon:hover{background:transparent; border-color:#B9A86A; color:var(--ink-faint)}
   .btn.small{padding:.62rem 1.3rem; font-size:.8rem}
   @media (max-width:860px){
-    nav.main{flex:1 1 100%; flex-wrap:nowrap; justify-content:space-between; border-top:1px solid var(--line); padding-top:.55rem; margin-top:.2rem}
-    nav.main a{padding:.45rem .5rem}
+    .header-inner{justify-content:center}
+    .brand{margin-right:0}
+    nav.main{width:100%; justify-content:center}
     .header-cta{display:none}
     .brand-tag{display:none}
-  }
-  @media (max-width:420px){
-    nav.main a{font-size:.78rem; letter-spacing:.1em; padding:.45rem .35rem}
   }
   /* Hero */
   .hero{background:radial-gradient(ellipse at 30% 20%, rgba(201,162,39,.14), transparent 55%), linear-gradient(160deg, #1B3560, #14294D 60%, #0E1F3C); color:#fff; overflow:hidden}
   .hero-grid{display:grid; grid-template-columns: 1.02fr .98fr; min-height:560px}
   .hero-copy{padding:64px 56px 64px 0; display:flex; flex-direction:column; justify-content:center; gap:22px}
   .hero-copy .gold-rule{width:9px; height:9px; background:var(--gold); transform:rotate(45deg)}
-  .hero h1{font-size:clamp(42px, 5.2vw, 68px); font-weight:600; color:#fff}
+  .hero h1{font-size:clamp(42px, 5.2vw, 68px); font-weight:600; color:#fff; line-height:1.08}
   .hero h1 em{font-style:italic; color:var(--gold-soft)}
   .hero-sub{font-size:19px; line-height:1.65; color:#D8E2EC; max-width:540px}
   .hero-actions{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:4px}
@@ -124,17 +123,17 @@
   /* Sections */
   section{padding:72px 0}
   .section-head{max-width:680px; margin-bottom:32px}
-  .section-head h2{font-size:clamp(30px, 3.6vw, 44px); font-weight:600; margin-bottom:12px}
+  .section-head h2{font-size:clamp(30px, 3.6vw, 44px); font-weight:600; margin-bottom:12px; line-height:1.08}
   .section-head p{color:var(--ink-soft); font-size:18px}
   .welcome{background:var(--paper)}
   .welcome-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:start}
   @media (max-width:860px){ .welcome-grid{grid-template-columns:1fr} section{padding:52px 0} }
-  .welcome-copy h2{font-size:clamp(30px,3.6vw,42px); margin-bottom:16px}
+  .welcome-copy h2{font-size:clamp(30px,3.6vw,42px); margin-bottom:16px; line-height:1.08}
   .welcome-copy p{color:var(--ink-soft); font-size:18px; margin-bottom:16px}
   .welcome-copy p:last-child{margin-bottom:0}
   /* Pour interactive */
   .pour-box{background:var(--surface); border:1px solid var(--line); border-radius:0; padding:24px; box-shadow:var(--shadow)}
-  .pour-box h3{font-size:26px; margin-bottom:6px}
+  .pour-box h3{font-size:26px; margin-bottom:6px; line-height:1.08}
   .pour-box > p{font-size:15px; color:var(--ink-soft); margin-bottom:18px}
   .pour-tray{background:#111; border-radius:0; min-height:168px; padding:18px; display:flex; flex-wrap:wrap; gap:10px; align-content:flex-start; align-items:center; justify-content:center}
   .stone{width:44px; height:36px; border-radius:48% 52% 55% 45% / 55% 48% 52% 45%; box-shadow:inset -6px -8px 12px rgba(0,0,0,.28), inset 6px 6px 10px rgba(255,255,255,.35), 0 4px 10px rgba(0,0,0,.35); transform:rotate(var(--r,0deg))}
@@ -152,7 +151,7 @@
   .price-badge{position:absolute; left:18px; top:18px; background:#fff; border:1px solid var(--gold); color:#14294D; font-family:"Cormorant Garamond", Georgia, serif; font-weight:700; padding:8px 14px; border-radius:0; font-size:17px; box-shadow:0 8px 20px rgba(0,0,0,.22); z-index:2}
   .shop-product-body{padding:36px 36px 32px}
   @media (max-width:560px){ .shop-product-body{padding:26px 22px} }
-  .shop-product-body h3{font-size:34px; margin-bottom:8px}
+  .shop-product-body h3{font-size:34px; margin-bottom:8px; line-height:1.08}
   .price-line{display:flex; flex-wrap:wrap; gap:8px 16px; align-items:baseline; margin-bottom:16px}
   .price{font-family:"Cormorant Garamond", Georgia, serif; font-size:2.5rem; font-weight:700; color:var(--navy); line-height:1}
   .ship-note{font-size:15px; color:var(--ink-soft); background:transparent; border:1px solid var(--gold); padding:10px 14px; border-radius:0}
@@ -179,7 +178,7 @@
   .singles-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
   .singles-body{padding:40px}
   @media (max-width:560px){ .singles-body{padding:28px 22px} }
-  .singles-body h3{color:#fff; font-size:36px; margin-bottom:12px}
+  .singles-body h3{color:#fff; font-size:36px; margin-bottom:12px; line-height:1.08}
   .singles-body > p{color:#C4D2E2; margin-bottom:20px}
   .tiers{display:grid; gap:0; border-top:1px solid rgba(255,255,255,.16)}
   .tier{display:flex; justify-content:space-between; gap:20px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.16); align-items:baseline}
@@ -194,7 +193,7 @@
   @media (max-width:860px){ .about-grid{grid-template-columns:1fr} }
   .about-media{border-radius:0; overflow:hidden; box-shadow:var(--shadow)}
   .about-media img{width:100%; height:100%; object-fit:cover; aspect-ratio:4/3}
-  .about-copy h2{font-size:clamp(30px,3.6vw,42px); margin-bottom:18px}
+  .about-copy h2{font-size:clamp(30px,3.6vw,42px); margin-bottom:18px; line-height:1.08}
   .about-copy p{color:var(--ink-soft); margin-bottom:16px; font-size:17.5px}
   .about-copy p:last-child{margin-bottom:0}
   /* About the owner */
@@ -205,14 +204,14 @@
   .owner-panel-rule{width:9px; height:9px; background:var(--gold); transform:rotate(45deg); margin:0 auto 16px}
   .owner-panel-text{font-family:"Cormorant Garamond", Georgia, serif; font-size:23px; line-height:1.4; color:#fff}
   .owner-panel-text em{color:var(--gold-soft)}
-  .owner-copy h2{font-size:clamp(30px,3.6vw,42px); margin-bottom:18px}
+  .owner-copy h2{font-size:clamp(30px,3.6vw,42px); margin-bottom:18px; line-height:1.08}
   .owner-copy p{color:var(--ink-soft); margin-bottom:16px; font-size:17.5px}
   .owner-copy p:last-child{margin-bottom:0}
   /* Shipping & FAQ */
   .ship-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:start}
   @media (max-width:860px){ .ship-grid{grid-template-columns:1fr} }
   .ship-card{background:linear-gradient(160deg, #1B3560, #14294D 60%, #0E1F3C); color:#EAF0EB; border-radius:0; padding:32px}
-  .ship-card h3{color:#fff; font-size:28px; margin-bottom:14px}
+  .ship-card h3{color:#fff; font-size:28px; margin-bottom:14px; line-height:1.08}
   .ship-card ul{list-style:none; padding:0; margin:16px 0; display:grid; gap:10px}
   .ship-card li{padding-left:20px; position:relative; color:#D2DEEC}
   .ship-card li::before{content:""; position:absolute; left:0; top:.62em; width:7px; height:7px; background:var(--gold-soft); transform:rotate(45deg)}
@@ -227,7 +226,7 @@
   /* Closing */
   .closing{text-align:center; padding:20px 0 8px}
   .closing-inner{max-width:760px; margin:0 auto; border-top:1px solid var(--line); padding-top:52px}
-  .closing h2{font-size:clamp(28px,3.4vw,40px); margin-bottom:16px}
+  .closing h2{font-size:clamp(28px,3.4vw,40px); margin-bottom:16px; line-height:1.08}
   .closing p{color:var(--ink-soft); font-size:18px}
   .thank-note{margin:36px auto 0; max-width:620px; background:var(--paper); border:1px solid var(--gold); border-radius:0; padding:22px 24px; text-align:left}
   .thank-note strong{display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:20px; color:var(--navy); margin-bottom:6px}
@@ -236,7 +235,7 @@
   footer{background:var(--footer-bg); color:var(--footer-ink); padding:2.8rem 0 2.2rem; margin-top:0}
   .footer-inner{display:flex; flex-direction:column; align-items:center; text-align:center; gap:0}
   .footer-brand{font-family:"Cormorant Garamond", Georgia, serif; letter-spacing:.04em; color:var(--footer-ink); font-size:1.4rem; font-weight:600; margin-top:1rem}
-  footer p{font-size:.92rem; color:rgba(238,240,245,.65); max-width:520px; margin-top:.6rem; line-height:1.6}
+  footer p{font-size:.92rem; color:rgba(238,240,245,.65); max-width:520px; margin:0; margin-top:.6rem; line-height:1.6}
   @media (prefers-color-scheme: dark){ footer p{color:rgba(223,230,242,.6)} }
   .footer-links{display:flex; justify-content:center; gap:.4rem; flex-wrap:wrap; margin:1.4rem 0 .4rem}
   .footer-links a{text-decoration:none; font-size:.82rem; letter-spacing:.2em; text-transform:uppercase; font-weight:400; padding:.4rem .8rem; color:var(--footer-ink)}
@@ -371,8 +370,9 @@
           <p class="ship-note"><strong>Free shipping</strong> anywhere in Canada (tracking included)</p>
           <p class="desc" style="margin-top:16px">A little bag of polished, tumbled-smooth stones in a mixed assortment of colours and patterns. Smooth to hold, bright in the light, and endlessly sort-able — no two bags, and no two stones, exactly alike.</p>
           <div class="buy-row" style="margin-top:6px">
-            <a class="btn" href="shop.html">Shop the Small Bag</a>
+            <a class="btn" href="mailto:teaganapps@gmail.com?subject=Pretty%20Bags%20of%20Rocks%20Waitlist">Join the Waitlist</a>
           </div>
+          <p class="buy-note">Our first batch is still tumbling — join the waitlist and we'll email you the moment bags are ready.</p>
           <p class="buy-note">Larger single rocks are in the Shop too — each one photographed individually, so the stone you see is the stone you get.</p>
         </div>
       </article>

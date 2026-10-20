@@ -458,7 +458,13 @@
         .faq-a p { padding: 0 1.25rem 1.3rem; }
         main { padding-top: 2.25rem; }
       }
-    </style>
+    
+      /* ---------- Nav: all five links stay on one line ---------- */
+      @media (max-width: 860px) {
+        nav.main { flex-wrap: nowrap; gap: 0.1rem; justify-content: center; }
+        nav.main a { white-space: nowrap; font-size: 0.78rem; letter-spacing: 0.08em; padding: 0.45rem 0.34rem; }
+      }
+</style>
   </head>
   <body>
     <div class="announce">Free shipping anywhere in Canada — on every order. Tracking included.</div>
@@ -689,7 +695,7 @@
         </nav>
         <div class="footer-meta">
           <p>Pretty Bags of Rocks · Saskatoon, Saskatchewan · Shipping anywhere in Canada and the US</p>
-          <p>Small bags $50 · Large singles from $65 · Free shipping · Tracking included</p>
+          <p>Small bags $50 · Large singles from $65 · Free shipping · Tracking included · <a href="unsubscribe.html">Unsubscribe</a></p>
         </div>
       </div>
     </footer>

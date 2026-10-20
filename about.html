@@ -437,7 +437,13 @@
         .story-grid { grid-template-columns: 1fr; }
         .story-photo img { min-height: 240px; }
       }
-    </style>
+    
+      /* ---------- Nav: all five links stay on one line ---------- */
+      @media (max-width: 860px) {
+        nav.main { flex-wrap: nowrap; gap: 0.1rem; justify-content: center; }
+        nav.main a { white-space: nowrap; font-size: 0.78rem; letter-spacing: 0.08em; padding: 0.45rem 0.34rem; }
+      }
+</style>
   </head>
   <body>
 
@@ -575,7 +581,7 @@
         </nav>
         <hr class="footer-rule" />
         <div class="fine">Pretty Bags of Rocks · Saskatoon, Saskatchewan · Shipping anywhere in Canada and the US</div>
-        <div class="fine">Small bags $50 · Large singles from $65 · Free shipping · Tracking included</div>
+        <div class="fine">Small bags $50 · Large singles from $65 · Free shipping · Tracking included · <a href="unsubscribe.html">Unsubscribe</a></div>
       </div>
     </footer>
 

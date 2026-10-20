@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Unsubscribe — Pretty Bags of Rocks</title>
+    <meta name="description" content="Unsubscribe from Pretty Bags of Rocks waitlist emails." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --navy: #14294D;
+        --navy-deep: #0E1E3A;
+        --gold: #C9A227;
+        --gold-soft: #E4CD85;
+        --cream: #F7F5EF;
+        --page-bg: #F7F5EF;
+        --card: #FFFFFF;
+        --heading: #14294D;
+        --body-text: #3E4A5C;
+        --header-bg: #FFFFFF;
+        --hairline: #E3DCC8;
+        --shadow: 0 18px 45px rgba(20, 41, 77, 0.10);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --page-bg: #0B1930;
+          --card: #16294B;
+          --heading: #F3EFE1;
+          --body-text: #D5DAE4;
+          --header-bg: #0F2242;
+          --hairline: #2C4470;
+          --shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--page-bg);
+        color: var(--body-text);
+        font-family: "Jost", "Segoe UI", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 1.075rem;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3 {
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        color: var(--heading);
+        margin: 0;
+        line-height: 1.15;
+      }
+      a { color: inherit; }
+      img { max-width: 100%; display: block; }
+
+      /* ---------- Announcement bar (matches home page) ---------- */
+      .announce {
+        background: #0E1F3C;
+        color: #F3EAD2;
+        text-align: center;
+        font-size: .82rem;
+        font-weight: 400;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        padding: .55rem 1rem;
+        line-height: 1.45;
+      }
+      @media (prefers-color-scheme: dark) {
+        .announce { background: #050C18; }
+      }
+
+      /* ---------- Header (matches home page) ---------- */
+      .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      header.site {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #FBF9F3;
+        border-bottom: 1px solid #E3DDCC;
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.25rem;
+        padding: 1.1rem 0;
+        flex-wrap: wrap;
+      }
+      .brand {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        margin-right: auto;
+      }
+      .brand-col { display: flex; flex-direction: column; gap: 1px; }
+      .logo-mark { flex-shrink: 0; color: #14294D; }
+      .logo-text {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+        fill: currentColor;
+      }
+      .logo-ring { fill: none; stroke: #C9A227; stroke-width: 1.1; }
+      .logo-rock {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .brand-name {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+        letter-spacing: .04em;
+        font-size: 1.65rem;
+        line-height: 1.1;
+        color: #14294D;
+      }
+      .brand-tag {
+        font-size: .72rem;
+        letter-spacing: .32em;
+        text-transform: uppercase;
+        color: #C9A227;
+        font-weight: 500;
+        margin-top: .2rem;
+        line-height: 1.5;
+      }
+      nav.main {
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        flex-wrap: wrap;
+      }
+      nav.main a {
+        text-decoration: none;
+        font-size: .85rem;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        font-weight: 400;
+        padding: .5rem .85rem;
+        color: #22304A;
+        border-bottom: 2px solid transparent;
+        white-space: nowrap;
+      }
+      nav.main a:hover { color: #C9A227; }
+      nav.main a[aria-current="page"] {
+        color: #14294D;
+        border-bottom-color: #C9A227;
+        font-weight: 500;
+      }
+      header.site .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid #14294D;
+        background: #14294D;
+        color: #F7F2DF;
+        font-weight: 500;
+        font-size: .88rem;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        padding: 1rem 2.4rem;
+        border-radius: 0;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+      }
+      header.site .btn.small { padding: .62rem 1.3rem; font-size: .8rem; }
+      nav.main a.btn { color: #F7F2DF !important; border-bottom: none; }
+      nav.main a.btn:hover { color: #14294D !important; background: #C9A227; border-color: #C9A227; }
+      @media (prefers-color-scheme: dark) {
+        header.site { background: #0A1526; border-bottom-color: #2C3D5C; }
+        .logo-mark { color: #DCE5F2; }
+        .brand-name { color: #DCE5F2; }
+        nav.main a { color: #E8ECF4; }
+        nav.main a[aria-current="page"] { color: #DCE5F2; }
+        header.site .btn { background: #0A1526; border-color: #0A1526; }
+        nav.main a.btn:hover { background: #C9A227; border-color: #C9A227; }
+      }
+      @media (max-width: 860px) {
+        nav.main {
+          flex-basis: 100%;
+          justify-content: center;
+          gap: .15rem;
+          border-top: 1px solid #E3DDCC;
+          padding-top: .55rem;
+          margin-top: .15rem;
+        }
+        nav.main a { padding: .45rem .6rem; letter-spacing: .12em; }
+        nav.main a.btn { padding: .55rem 1rem; }
+        .brand-tag { display: none; }
+      }
+      @media (prefers-color-scheme: dark) and (max-width: 860px) {
+        nav.main { border-top-color: #2C3D5C; }
+      }
+
+      /* ---------- Badge logo ---------- */
+      .badge { flex: none; }
+      .badge .ring { fill: none; stroke: var(--gold); stroke-width: 1.4; }
+      .badge .ring-inner { fill: none; stroke: var(--gold); stroke-width: 1; }
+      .badge text {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+        fill: var(--heading);
+      }
+      .badge .rock-lines {
+        fill: none;
+        stroke: var(--heading);
+        stroke-width: 2.1;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+      .badge.on-navy text { fill: var(--cream); }
+      .badge.on-navy .rock-lines { stroke: var(--gold-soft); }
+
+      /* ---------- Page heading ---------- */
+      .page-head {
+        text-align: center;
+        padding: 4.2rem 1.5rem 1rem;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .page-head h1 {
+        font-size: clamp(3rem, 8vw, 4.4rem);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+      .page-head p {
+        margin: 1.1rem auto 0;
+        font-size: 1.12rem;
+        max-width: 34em;
+      }
+      .ornament {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.85rem;
+        margin-top: 1.6rem;
+      }
+      .ornament::before,
+      .ornament::after {
+        content: "";
+        height: 1px;
+        width: 74px;
+        background: var(--gold);
+      }
+      .ornament span {
+        width: 8px; height: 8px;
+        background: var(--gold);
+        transform: rotate(45deg);
+        display: block;
+      }
+
+      /* ---------- Sections / cards ---------- */
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 2.6rem 1.5rem 4.5rem;
+        display: grid;
+        gap: 2.6rem;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--hairline);
+        box-shadow: var(--shadow);
+        padding: clamp(1.8rem, 5vw, 3.4rem);
+      }
+      .card h2 {
+        font-size: clamp(2rem, 5vw, 2.7rem);
+        font-weight: 500;
+      }
+      .card .kicker {
+        font-size: 0.74rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 0.7rem;
+      }
+      .card p { margin: 1.05rem 0 0; }
+      .card p:first-of-type { margin-top: 1.2rem; }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(1.8rem, 4vw, 3.2rem);
+        align-items: center;
+      }
+      .story-photo {
+        margin: 0;
+        border: 1px solid var(--hairline);
+        padding: 0.65rem;
+        background: var(--card);
+      }
+      .story-photo img {
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        object-fit: cover;
+      }
+      .story-photo figcaption {
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        text-align: center;
+        padding: 0.7rem 0.4rem 0.25rem;
+        color: var(--body-text);
+      }
+
+      blockquote.joy {
+        margin: 2rem 0 0;
+        padding: 0.4rem 0 0.4rem 1.6rem;
+        border-left: 2px solid var(--gold);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-style: italic;
+        font-size: 1.55rem;
+        line-height: 1.45;
+        color: var(--heading);
+      }
+      .signature {
+        margin-top: 2rem;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.7rem;
+        font-style: italic;
+        color: var(--heading);
+      }
+      .signature small {
+        display: block;
+        font-family: "Jost", sans-serif;
+        font-style: normal;
+        font-size: 0.74rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-top: 0.35rem;
+      }
+
+      /* ---------- CTA ---------- */
+      .cta {
+        text-align: center;
+        padding: 1rem 1.5rem 0;
+      }
+      .cta p {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.6rem;
+        font-style: italic;
+        color: var(--heading);
+        margin: 0 0 1.4rem;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--navy);
+        color: var(--cream);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 400;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        padding: 1rem 2.4rem;
+        border: 1px solid var(--navy);
+      }
+      .btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
+      @media (prefers-color-scheme: dark) {
+        .btn { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
+        .btn:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+      }
+
+      /* ---------- Footer (matches home page) ---------- */
+      footer.site {
+        background: var(--navy-deep);
+        color: #C7CFE0;
+        margin-top: 1rem;
+      }
+      .footer-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 3.6rem 1.5rem 2.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        text-align: center;
+      }
+      footer.site .badge .rock-lines { stroke: var(--cream); }
+      .footer-name {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 500;
+        font-size: clamp(2.1rem, 6vw, 2.9rem);
+        letter-spacing: 0.02em;
+        color: var(--cream);
+        margin: 1.7rem 0 0;
+        line-height: 1.15;
+      }
+      .footer-tag {
+        margin: 1.15rem auto 0;
+        max-width: 34em;
+        font-size: 1.02rem;
+        line-height: 1.7;
+        color: #A9B6CC;
+      }
+      footer.site nav {
+        display: flex;
+        gap: 2.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2.2rem;
+      }
+      footer.site nav a {
+        color: var(--cream);
+        text-decoration: none;
+        font-size: 0.85rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+      }
+      footer.site nav a:hover { color: var(--gold-soft); }
+      .footer-rule {
+        width: 100%;
+        border: none;
+        border-top: 1px solid rgba(199, 207, 224, 0.28);
+        margin: 2.4rem 0 1.9rem;
+      }
+      footer.site .fine {
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        color: #93A2BC;
+        line-height: 1.8;
+      }
+      footer.site .fine + .fine { margin-top: 0.9rem; }
+
+      @media (max-width: 760px) {
+        .story-grid { grid-template-columns: 1fr; }
+        .story-photo img { min-height: 240px; }
+      }
+    
+      /* ---------- Contact form ---------- */
+      .contact-form { display: grid; gap: 0.9rem; margin-top: 1.5rem; text-align: left; max-width: 580px; }
+      .contact-form label { display: grid; gap: 0.35rem; font-weight: 500; font-size: 0.88rem; color: var(--navy); }
+      .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea { font: inherit; font-size: 0.92rem; padding: 0.65rem 0.9rem; border: 1px solid #cfc9b4; border-radius: 3px; background: #fffdf7; color: var(--navy); width: 100%; box-sizing: border-box; }
+      .contact-form textarea { resize: vertical; min-height: 130px; }
+      .contact-form input::placeholder, .contact-form textarea::placeholder { color: #8a8574; }
+      .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--gold); outline-offset: -1px; border-color: var(--gold); }
+      .contact-success { margin-top: 1.5rem; color: var(--navy); font-weight: 600; font-size: 1.05rem; text-align: center; }
+    
+      /* ---------- Nav: all five links stay on one line ---------- */
+      @media (max-width: 860px) {
+        nav.main { flex-wrap: nowrap; gap: 0.1rem; justify-content: center; }
+        nav.main a { white-space: nowrap; font-size: 0.78rem; letter-spacing: 0.08em; padding: 0.45rem 0.34rem; }
+      }
+</style>
+  </head>
+  <body>
+
+    <div class="announce">Free shipping anywhere in Canada — on every order. Tracking included.</div>
+
+    <header class="site">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html" aria-label="Pretty Bags of Rocks — home">
+          <svg class="logo-mark" width="84" height="84" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <circle class="logo-ring" cx="100" cy="100" r="95"/>
+            <circle class="logo-ring" cx="100" cy="100" r="63"/>
+            <path id="arcTopH" d="M37.7,143.6 A76,76 0 1,1 162.3,143.6" fill="none"/>
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="208" lengthAdjust="spacing"><textPath href="#arcTopH" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath></text>
+            <path id="arcBotH" d="M27.9,150.4 A88,88 0 0,0 172.1,150.4" fill="none"/>
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="140" lengthAdjust="spacing"><textPath href="#arcBotH" startOffset="50%" text-anchor="middle">OF ROCKS</textPath></text>
+            <g class="logo-rock">
+              <path d="M63 118 L74 84 L96 66 L122 72 L138 96 L132 122 L104 134 L78 130 Z"/>
+              <path d="M74 84 L100 99 L96 66"/>
+              <path d="M100 99 L122 72"/>
+              <path d="M100 99 L104 134"/>
+              <path d="M100 99 L132 122"/>
+            </g>
+          </svg>
+          <span class="brand-col">
+            <span class="brand-name">Pretty Bags of Rocks</span>
+            <span class="brand-tag">Polished rocks, gathered in small bags — shipped anywhere in Canada and the US.</span>
+          </span>
+        </a>
+        <nav class="main" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page-head">
+      <h1>About</h1>
+      <p>A small shop, a family tradition, and a lifelong love of beautiful stones.</p>
+      <div class="ornament" aria-hidden="true"><span></span></div>
+    </div>
+
+    <main>
+      <div class="page-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h1>Unsubscribe</h1>
+        <p>Sorry to see you go! Enter your email below and we&rsquo;ll take you off our waitlist emails.</p>
+      </div>
+
+      <section class="card" aria-labelledby="unsub-heading">
+        <div class="kicker">No Hard Feelings</div>
+        <h2 id="unsub-heading">Stop Waitlist Emails</h2>
+        <form class="contact-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLScJNDt7Iy6A9cbX5wT6SZsUAUvtIPpKqAtFI_bNMF2XezT8Fw/formResponse" target="unsub_iframe" onsubmit="unsubSubmit(this)">
+          <label>Email address
+            <input type="email" name="entry.119751050" required autocomplete="email" placeholder="you@example.com">
+          </label>
+          <button type="submit" class="btn">Unsubscribe</button>
+        </form>
+      </section>
+    </main>
+
+
+
+    <footer class="site">
+      <div class="footer-inner">
+        <svg class="badge on-navy" width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Pretty Bags of Rocks badge logo">
+          <circle class="ring" cx="100" cy="100" r="95" />
+          <circle class="ring-inner" cx="100" cy="100" r="63" />
+          <path id="arcTopF" d="M37.7,143.6 A76,76 0 1,1 162.3,143.6" fill="none" />
+          <text font-size="17" style="letter-spacing:2px" textLength="208" lengthAdjust="spacing"><textPath href="#arcTopF" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath></text>
+          <path id="arcBotF" d="M27.9,150.4 A88,88 0 0,0 172.1,150.4" fill="none" />
+          <text font-size="17" style="letter-spacing:2px" textLength="140" lengthAdjust="spacing"><textPath href="#arcBotF" startOffset="50%" text-anchor="middle">OF ROCKS</textPath></text>
+          <g class="rock-lines">
+            <path d="M63 118 L74 84 L96 66 L122 72 L138 96 L132 122 L104 134 L78 130 Z" />
+            <path d="M74 84 L100 99 L96 66" />
+            <path d="M100 99 L122 72" />
+            <path d="M100 99 L104 134" />
+            <path d="M100 99 L132 122" />
+          </g>
+        </svg>
+        <div class="footer-name">Pretty Bags of Rocks</div>
+        <p class="footer-tag">Polished rocks, gathered in small bags — shipped anywhere in Canada and the US. Pretty rocks. Honest bags. Tumbled smooth, packed by hand in Saskatoon.</p>
+        <nav aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <hr class="footer-rule" />
+        <div class="fine">Pretty Bags of Rocks · Saskatoon, Saskatchewan · Shipping anywhere in Canada and the US</div>
+        <div class="fine">Small bags $50 · Large singles from $65 · Free shipping · Tracking included · <a href="unsubscribe.html">Unsubscribe</a></div>
+      </div>
+    </footer>
+
+      <iframe name="unsub_iframe" id="unsub_iframe" style="display:none" title="Unsubscribe submission" aria-hidden="true"></iframe>
+    <script>
+      var unsubForm = null;
+      function unsubSubmit(f) { unsubForm = f; return true; }
+      document.getElementById("unsub_iframe").addEventListener("load", function () {
+        if (unsubForm) {
+          unsubForm.innerHTML = '<p class="contact-success">You\'ve been unsubscribed. You won\'t receive waitlist emails from us anymore.</p>';
+          unsubForm = null;
+        }
+      });
+    </script>
+</body>
+</html>

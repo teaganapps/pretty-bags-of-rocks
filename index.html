@@ -247,6 +247,12 @@
   .toast{position:fixed; left:50%; bottom:22px; transform:translate(-50%, 120px); background:var(--navy-deep); color:#fff; padding:14px 18px; border-radius:0; box-shadow:0 16px 40px rgba(0,0,0,.3); max-width:min(520px, calc(100% - 32px)); z-index:100; transition:transform .3s ease; font-size:15px; line-height:1.5; border:1px solid var(--gold)}
   .toast.show{transform:translate(-50%, 0)}
   .toast strong{color:var(--gold-soft)}
+
+      /* ---------- Nav: all five links stay on one line ---------- */
+      @media (max-width: 860px) {
+        nav.main { flex-wrap: nowrap; gap: 0.1rem; justify-content: center; }
+        nav.main a { white-space: nowrap; font-size: 0.78rem; letter-spacing: 0.08em; padding: 0.45rem 0.34rem; }
+      }
 </style>
 </head>
 <body>
@@ -425,7 +431,7 @@
     </div>
     <div class="footer-bottom">
       <span>Pretty Bags of Rocks • Saskatoon, Saskatchewan • Shipping anywhere in Canada and the US</span>
-      <span>Small bags $50 &nbsp;•&nbsp; Large singles from $65 &nbsp;•&nbsp; Free shipping &nbsp;•&nbsp; Tracking included</span>
+      <span>Small bags $50 &nbsp;•&nbsp; Large singles from $65 &nbsp;•&nbsp; Free shipping &nbsp;•&nbsp; Tracking included &nbsp;•&nbsp; <a href="unsubscribe.html">Unsubscribe</a></span>
     </div>
   </div>
 </footer>

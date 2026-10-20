@@ -246,6 +246,12 @@
       }
       .waitlist-note p { margin: 0; font-size: 1.05rem; color: var(--ink); }
       .tier .tier-waitlist { margin-top: 1.3rem; }
+      .waitlist-form { display: grid; gap: 0.55rem; margin-top: 1.3rem; text-align: left; }
+      .waitlist-form.narrow { max-width: 430px; margin-left: auto; margin-right: auto; }
+      .waitlist-form input[type="text"], .waitlist-form input[type="email"] { font: inherit; font-size: 0.88rem; padding: 0.6rem 0.85rem; border: 1px solid #cfc9b4; border-radius: 3px; background: #fffdf7; color: var(--navy); width: 100%; box-sizing: border-box; }
+      .waitlist-form input::placeholder { color: #8a8574; }
+      .waitlist-form input:focus { outline: 2px solid var(--gold); outline-offset: -1px; border-color: var(--gold); }
+      .wl-success { margin-top: 1.3rem; color: var(--navy); font-weight: 600; text-align: center; }
 
       /* ---------- Product card ---------- */
       .product {
@@ -669,7 +675,12 @@
             <h3>Medium</h3>
             <div class="tier-price">$65 <small>CAD</small></div>
             <p>Palm-sized — a satisfying weight in the hand, perfect for a desk or pocket.</p>
-            <a class="btn small tier-waitlist" href="mailto:teaganapps@gmail.com?subject=Pretty%20Bags%20of%20Rocks%20Waitlist">Join the Waitlist</a>
+            <form class="waitlist-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
+              <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
+              <input type="email" name="entry.661970013" placeholder="Email address" required autocomplete="email" aria-label="Email address">
+              <input type="hidden" name="entry.15772080" value="Medium Single">
+              <button type="submit" class="btn small">Join the Waitlist</button>
+            </form>
           </article>
           <article class="tier">
             <svg viewBox="0 0 100 100" aria-hidden="true">
@@ -685,7 +696,12 @@
             <h3>Large</h3>
             <div class="tier-price">$95 <small>CAD</small></div>
             <p>A statement piece — the kind of stone a shelf or mantle is built around.</p>
-            <a class="btn small tier-waitlist" href="mailto:teaganapps@gmail.com?subject=Pretty%20Bags%20of%20Rocks%20Waitlist">Join the Waitlist</a>
+            <form class="waitlist-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
+              <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
+              <input type="email" name="entry.661970013" placeholder="Email address" required autocomplete="email" aria-label="Email address">
+              <input type="hidden" name="entry.15772080" value="Large Single">
+              <button type="submit" class="btn small">Join the Waitlist</button>
+            </form>
           </article>
           <article class="tier">
             <svg viewBox="0 0 100 100" aria-hidden="true">
@@ -701,7 +717,12 @@
             <h3>Showpiece</h3>
             <div class="tier-price">$145 <small>CAD</small></div>
             <p>The finest single stones from the tumbler — rare colours, patterns, and size.</p>
-            <a class="btn small tier-waitlist" href="mailto:teaganapps@gmail.com?subject=Pretty%20Bags%20of%20Rocks%20Waitlist">Join the Waitlist</a>
+            <form class="waitlist-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
+              <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
+              <input type="email" name="entry.661970013" placeholder="Email address" required autocomplete="email" aria-label="Email address">
+              <input type="hidden" name="entry.15772080" value="Showpiece">
+              <button type="submit" class="btn small">Join the Waitlist</button>
+            </form>
           </article>
         </div>
       </section>
@@ -789,7 +810,12 @@
           <span class="ship-chip">Return shipping included</span>
 
           <div class="buy-row">
-            <a class="buy-btn" href="mailto:teaganapps@gmail.com?subject=Pretty%20Bags%20of%20Rocks%20Waitlist">Join the Waitlist</a>
+            <form class="waitlist-form narrow" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
+              <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
+              <input type="email" name="entry.661970013" placeholder="Email address" required autocomplete="email" aria-label="Email address">
+              <input type="hidden" name="entry.15772080" value="Rock Polishing Service">
+              <button type="submit" class="buy-btn">Join the Waitlist</button>
+            </form>
             <span class="buy-note">No payment yet — just your email, and we'll be in touch.</span>
           </div>
         </div>
@@ -825,7 +851,12 @@
           <span class="ship-chip">Free shipping</span>
 
           <div class="buy-row">
-            <a class="buy-btn" href="mailto:teaganapps@gmail.com?subject=Pretty%20Bags%20of%20Rocks%20Waitlist">Join the Waitlist</a>
+            <form class="waitlist-form narrow" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
+              <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
+              <input type="email" name="entry.661970013" placeholder="Email address" required autocomplete="email" aria-label="Email address">
+              <input type="hidden" name="entry.15772080" value="Tumbled Glass">
+              <button type="submit" class="buy-btn">Join the Waitlist</button>
+            </form>
             <span class="buy-note">No payment yet — just your email, and we'll be in touch.</span>
           </div>
         </div>
@@ -858,7 +889,12 @@
             <h3>Branded Sticker</h3>
             <div class="tier-price">$5 <small>CAD</small></div>
             <p>Our circular badge logo as a single sticker — for laptops, water bottles, and rock journals.</p>
-            <a class="btn small tier-waitlist" href="mailto:teaganapps@gmail.com?subject=Pretty%20Bags%20of%20Rocks%20Waitlist">Join the Waitlist</a>
+            <form class="waitlist-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
+              <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
+              <input type="email" name="entry.661970013" placeholder="Email address" required autocomplete="email" aria-label="Email address">
+              <input type="hidden" name="entry.15772080" value="Branded Sticker">
+              <button type="submit" class="btn small">Join the Waitlist</button>
+            </form>
           </article>
         </div>
       </section>
@@ -942,6 +978,17 @@
         });
         render();
       })();
+    </script>
+    <iframe name="wl_iframe" id="wl_iframe" style="display:none" title="Waitlist signup" aria-hidden="true"></iframe>
+    <script>
+      var wlForm = null;
+      function wlSubmit(f) { wlForm = f; return true; }
+      document.getElementById("wl_iframe").addEventListener("load", function () {
+        if (wlForm) {
+          wlForm.innerHTML = "<p class=\"wl-success\">You&rsquo;re on the list! We&rsquo;ll email you the moment it&rsquo;s ready.</p>";
+          wlForm = null;
+        }
+      });
     </script>
   </body>
 </html>

@@ -557,10 +557,18 @@
         nav.main { flex-wrap: nowrap; gap: 0.1rem; justify-content: center; }
         nav.main a { white-space: nowrap; font-size: 0.78rem; letter-spacing: 0.08em; padding: 0.45rem 0.34rem; }
       }
+
+      /* ---------- Region toggle (Canada / US) ---------- */
+      .region-toggle { display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin: 0 auto 1.2rem; padding: 0 1rem; }
+      .region-toggle .rt-label { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; }
+      .region-toggle .rt-group { display: inline-flex; border: 1.5px solid #C9A227; border-radius: 999px; overflow: hidden; }
+      .region-toggle .region-btn { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: inherit; font: inherit; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.05rem; cursor: pointer; }
+      .region-toggle .region-btn.active { background: #C9A227; color: #14294D; }
+      .region-note { text-align: center; font-size: 0.88rem; opacity: 0.8; margin: -0.4rem auto 1.6rem; padding: 0 1rem; }
 </style>
   </head>
   <body>
-    <div class="announce">Free shipping anywhere in Canada — on every order. Tracking included.</div>
+    <div class="announce" data-ca-text="Free shipping anywhere in Canada — on every order. Tracking included." data-us-text="Shipping is included in every US price — on every order. Tracking included.">Free shipping anywhere in Canada — on every order. Tracking included.</div>
 
     <header class="site">
       <div class="wrap header-inner">
@@ -608,6 +616,14 @@
       </div>
 
       <!-- Small Bag -->
+      <div class="region-toggle" role="group" aria-label="Choose your country for pricing and checkout">
+        <span class="rt-label">Shopping from</span>
+        <span class="rt-group">
+          <button type="button" class="region-btn active" data-region="CA" aria-pressed="true">Canada</button>
+          <button type="button" class="region-btn" data-region="US" aria-pressed="false">United States</button>
+        </span>
+      </div>
+      <p class="region-note" data-ca-text="Canadian prices - free shipping anywhere in Canada. Taxes are added at checkout." data-us-text="US prices - shipping is included in the price. Prices are in Canadian dollars.">Canadian prices - free shipping anywhere in Canada. Taxes are added at checkout.</p>
       <section class="product" aria-labelledby="bag-title">
         <div class="product-art" aria-hidden="true">
           <svg viewBox="0 0 200 200">
@@ -638,10 +654,10 @@
             ever alike: every stone is one of a kind.
           </p>
           <div class="price-row">
-            <span class="price">$50.00</span>
+            <span class="price" data-ca-text="$50.00" data-us-text="$70.00">$50.00</span>
             <span class="price-note">CAD · per bag</span>
           </div>
-          <span class="ship-chip">Free shipping</span>
+          <span class="ship-chip" data-ca-text="Free shipping" data-us-text="Shipping included">Free shipping</span>
 
           <div class="calc">
             <div>
@@ -659,7 +675,7 @@
           </div>
 
           <div class="buy-row">
-            <a class="buy-btn" href="https://square.link/u/8g7cAnxm">PRE ORDER NOW</a>
+            <a class="buy-btn" href="https://square.link/u/8g7cAnxm" data-ca-href="https://square.link/u/8g7cAnxm" data-us-href="https://square.link/u/bcqKtNi3">PRE ORDER NOW</a>
             <span class="buy-note">Ships in 30–40 days.</span>
           </div>
         </div>
@@ -683,7 +699,7 @@
               </g>
             </svg>
             <h3>Medium</h3>
-            <div class="tier-price">$65 <small>CAD</small></div>
+            <div class="tier-price"><span data-ca-text="$65" data-us-text="$85">$65</span> <small>CAD</small></div>
             <p>Palm-sized — a satisfying weight in the hand, perfect for a desk or pocket.</p>
             <form class="waitlist-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
               <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
@@ -704,7 +720,7 @@
               </g>
             </svg>
             <h3>Large</h3>
-            <div class="tier-price">$95 <small>CAD</small></div>
+            <div class="tier-price"><span data-ca-text="$95" data-us-text="$115">$95</span> <small>CAD</small></div>
             <p>A statement piece — the kind of stone a shelf or mantle is built around.</p>
             <form class="waitlist-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
               <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
@@ -725,7 +741,7 @@
               </g>
             </svg>
             <h3>Showpiece</h3>
-            <div class="tier-price">$145 <small>CAD</small></div>
+            <div class="tier-price"><span data-ca-text="$145" data-us-text="$165">$145</span> <small>CAD</small></div>
             <p>The finest single stones from the tumbler — rare colours, patterns, and size.</p>
             <form class="waitlist-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
               <input type="text" name="entry.1494531310" placeholder="Your name" autocomplete="name" aria-label="Your name">
@@ -772,12 +788,12 @@
             collectors, displays, and anyone who can't stop at a little bag.
           </p>
           <div class="price-row">
-            <span class="price">$60.00</span>
+            <span class="price" data-ca-text="$60.00" data-us-text="$85.00">$60.00</span>
             <span class="price-note">CAD · per bag</span>
           </div>
-          <span class="ship-chip">Free shipping</span>
+          <span class="ship-chip" data-ca-text="Free shipping" data-us-text="Shipping included">Free shipping</span>
           <div class="buy-row">
-            <a class="buy-btn" href="https://square.link/u/ApZjO7Cs">PRE ORDER NOW</a>            
+            <a class="buy-btn" href="https://square.link/u/ApZjO7Cs" data-ca-href="https://square.link/u/ApZjO7Cs" data-us-href="https://square.link/u/11ebohxd">PRE ORDER NOW</a>            
             <span class="buy-note">Ships in 30–40 days.</span>
           </div>
         </div>
@@ -814,7 +830,7 @@
             join the waitlist); return shipping is on us.
           </p>
           <div class="price-row">
-            <span class="price">$75.00</span>
+            <span class="price" data-ca-text="$75.00" data-us-text="$95.00">$75.00</span>
             <span class="price-note">CAD · per sandwich bag</span>
           </div>
           <span class="ship-chip">Return shipping included</span>
@@ -855,10 +871,10 @@
             we'll let you know when pieces are ready.
           </p>
           <div class="price-row">
-            <span class="price">$20.00</span>
+            <span class="price" data-ca-text="$20.00" data-us-text="$40.00">$20.00</span>
             <span class="price-note">CAD · per piece</span>
           </div>
-          <span class="ship-chip">Free shipping</span>
+          <span class="ship-chip" data-ca-text="Free shipping" data-us-text="Shipping included">Free shipping</span>
 
           <div class="buy-row">
             <form class="waitlist-form narrow" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdxENRWRCDHo68R5-wkQnd-NDJrsSCXgDwoSduu_56Zo9TpdA/formResponse" target="wl_iframe" onsubmit="wlSubmit(this)">
@@ -889,9 +905,9 @@
               </g>
             </svg>
             <h3>Surprise Sticker Pack</h3>
-            <div class="tier-price">$25 <small>CAD</small></div>
+            <div class="tier-price"><span data-ca-text="$25" data-us-text="$40">$25</span> <small>CAD</small></div>
             <p>A pack of 10 surprise stickers — a lucky dip of designs. No two packs are exactly alike.</p>
-            <a class="btn small" href="https://square.link/u/whmAUXco">BUY NOW</a>
+            <a class="btn small" href="https://square.link/u/whmAUXco" data-ca-href="https://square.link/u/whmAUXco" data-us-href="https://square.link/u/oEQCOz5a">BUY NOW</a>
             <p class="buy-note">In stock — 18 available.</p>
           </article>
           <article class="tier">
@@ -912,11 +928,7 @@
       <!-- Shipping note -->
       <section class="ship-note" aria-labelledby="ship-title">
         <h2 id="ship-title">Shipping, on us</h2>
-        <p>
-          Shipping is free anywhere in Canada, on every order — no minimums, no
-          surprises at checkout. Every parcel includes tracking, so you can follow
-          your rocks from Saskatoon to your door.
-        </p>
+        <p data-ca-text="Shipping is free anywhere in Canada, on every order — no minimums, no surprises at checkout. Every parcel includes tracking, so you can follow your rocks from Saskatoon to your door." data-us-text="For US orders, shipping is already included in the price — no minimums, no surprises at checkout. Every parcel includes tracking, so you can follow your rocks from Saskatoon to your door.">Shipping is free anywhere in Canada, on every order — no minimums, no surprises at checkout. Every parcel includes tracking, so you can follow your rocks from Saskatoon to your door.</p>
       </section>
     </main>
 
@@ -950,7 +962,7 @@
         </div>
         <div class="footer-bottom">
           <span>Pretty Bags of Rocks • Saskatoon, Saskatchewan • Shipping anywhere in Canada and the US</span>
-          <span>Small bags $50 &nbsp;•&nbsp; Large singles from $65 &nbsp;•&nbsp; Free shipping &nbsp;•&nbsp; Tracking included &nbsp;•&nbsp; <a href="unsubscribe.html">Unsubscribe</a></span>
+          <span>Small bags <span data-ca-text="$50" data-us-text="$70">$50</span> &nbsp;•&nbsp; Large singles from <span data-ca-text="$65" data-us-text="$85">$65</span> &nbsp;•&nbsp; <span data-ca-text="Free shipping" data-us-text="Shipping included">Free shipping</span> &nbsp;•&nbsp; Tracking included &nbsp;•&nbsp; <a href="unsubscribe.html">Unsubscribe</a></span>
         </div>
       </div>
     </footer>
@@ -958,6 +970,7 @@
     <script>
       (function () {
         var PRICE = 50;
+        window.pbrSetPrice = function (p) { PRICE = p; render(); };
         var input = document.getElementById("qty");
         var total = document.getElementById("total");
         var minus = document.getElementById("qty-minus");
@@ -1001,5 +1014,34 @@
         }
       });
     </script>
-  </body>
+      <script>
+      (function () {
+        var KEY = "pbr-region";
+        function get() { try { return localStorage.getItem(KEY) === "US" ? "US" : "CA"; } catch (e) { return "CA"; } }
+        function apply(r) {
+          var us = r === "US";
+          document.querySelectorAll("[data-ca-href]").forEach(function (el) {
+            el.setAttribute("href", us ? el.getAttribute("data-us-href") : el.getAttribute("data-ca-href"));
+          });
+          document.querySelectorAll("[data-ca-text]").forEach(function (el) {
+            el.innerHTML = us ? el.getAttribute("data-us-text") : el.getAttribute("data-ca-text");
+          });
+          document.querySelectorAll(".region-btn").forEach(function (b) {
+            var on = b.getAttribute("data-region") === r;
+            b.classList.toggle("active", on);
+            b.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          if (window.pbrSetPrice) window.pbrSetPrice(us ? 70 : 50);
+        }
+        document.querySelectorAll(".region-btn").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var r = b.getAttribute("data-region");
+            try { localStorage.setItem(KEY, r); } catch (e) {}
+            apply(r);
+          });
+        });
+        apply(get());
+      })();
+    </script>
+</body>
 </html>

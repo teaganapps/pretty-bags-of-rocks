@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <title>One-of-a-Kind Singles — Pretty Bags of Rocks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #14294d;
+        --navy-deep: #0e1f3c;
+        --gold: #c9a227;
+        --gold-soft: #e6cf7e;
+        --cream: #f7f5ef;
+        --paper: #fffdf8;
+        --card: #ffffff;
+        --ink: #22304a;
+        --ink-soft: #5a6579;
+        --line: #e3ddcc;
+        --header-bg: #fbf9f3;
+        --footer-bg: #14294d;
+        --footer-ink: #eef0f5;
+        --shadow: 0 18px 40px rgba(20, 41, 77, 0.1);
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --navy: #dce5f2;
+          --navy-deep: #0a1526;
+          --cream: #0d1930;
+          --paper: #0d1930;
+          --card: #16263f;
+          --ink: #e8ecf4;
+          --ink-soft: #a7b2c6;
+          --line: #2c3d5c;
+          --header-bg: #0a1526;
+          --footer-bg: #081120;
+          --footer-ink: #dfe6f2;
+          --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+          color-scheme: dark;
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+        font-weight: 300;
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, .serif {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        color: var(--navy);
+        margin: 0;
+      }
+      a { color: inherit; }
+
+      /* ---------- Announcement bar ---------- */
+      .announce {
+        background: var(--navy-deep);
+        color: #f3ead2;
+        text-align: center;
+        padding: 0.55rem 1rem;
+        font-size: 0.82rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.45;
+      }
+      @media (prefers-color-scheme: dark) {
+        .announce { background: #050c18; }
+      }
+
+      /* ---------- Header (matches the home page banner exactly) ---------- */
+      .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      header.site {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--header-bg);
+        border-bottom: 1px solid var(--line);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.25rem;
+        padding: 1.1rem 0;
+        flex-wrap: wrap;
+      }
+      .brand {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        margin-right: auto;
+      }
+      .brand-col { display: flex; flex-direction: column; gap: 1px; }
+      /* Logo — circular badge: delicate serif word-ring around a fine-line rock */
+      .logo-mark { flex-shrink: 0; color: var(--navy); }
+      .logo-mark .logo-text {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+        fill: currentColor;
+      }
+      .logo-mark .logo-ring { fill: none; stroke: var(--gold); stroke-width: 1.1; }
+      .logo-mark .logo-rock {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .brand-name {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        font-size: 1.65rem;
+        line-height: 1.1;
+        color: var(--navy);
+      }
+      .brand-tag {
+        font-size: 0.72rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-top: 0.2rem;
+        line-height: 1.5;
+      }
+      nav.main {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+      nav.main a {
+        text-decoration: none;
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 400;
+        padding: 0.5rem 0.85rem;
+        color: var(--ink);
+        border-bottom: 2px solid transparent;
+        white-space: nowrap;
+      }
+      nav.main a:hover { color: var(--gold); }
+      nav.main a[aria-current="page"] {
+        color: var(--navy);
+        border-bottom-color: var(--gold);
+        font-weight: 500;
+      }
+      nav.main a.btn { color: #f7f2df !important; border-bottom: none; }
+      nav.main a.btn:hover { color: #14294d !important; background: var(--gold); }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--navy-deep);
+        background: var(--navy-deep);
+        color: #f7f2df;
+        font-weight: 500;
+        font-size: 0.88rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        padding: 1rem 2.4rem;
+        border-radius: 0;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        text-align: center;
+      }
+      @media (prefers-color-scheme: light) {
+        .btn { background: #14294d; border-color: #14294d; }
+      }
+      .btn:hover { background: var(--gold); border-color: var(--gold); color: #14294d; }
+      .btn.small { padding: 0.62rem 1.3rem; font-size: 0.8rem; }
+      @media (max-width: 860px) {
+        .header-inner { justify-content: center; }
+        .brand { margin-right: 0; }
+        nav.main { width: 100%; justify-content: center; }
+        .header-cta { display: none; }
+        .brand-tag { display: none; }
+      }
+
+      /* ---------- Layout ---------- */
+      main { max-width: 1120px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+      .page-head {
+        text-align: center;
+        padding: 3.2rem 1rem 2.4rem;
+      }
+      .page-head h1 {
+        font-size: clamp(2.6rem, 6vw, 3.8rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .page-head p {
+        max-width: 34rem;
+        margin: 0.9rem auto 0;
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+      .rule {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+        margin-top: 1.4rem;
+      }
+      .rule::before, .rule::after {
+        content: "";
+        height: 1px;
+        width: 72px;
+        background: var(--gold);
+      }
+      .rule span {
+        width: 8px; height: 8px;
+        background: var(--gold);
+        transform: rotate(45deg);
+        display: block;
+      }
+
+      /* ---------- Waitlist note ---------- */
+      .waitlist-note {
+        border: 1px solid var(--gold);
+        background: var(--card);
+        box-shadow: var(--shadow);
+        text-align: center;
+        padding: 1.15rem 1.6rem;
+        margin-bottom: 2.4rem;
+      }
+      .waitlist-note p { margin: 0; font-size: 1.05rem; color: var(--ink); }
+      .tier .tier-waitlist { margin-top: 1.3rem; }
+      .waitlist-form { display: grid; gap: 0.55rem; margin-top: 1.3rem; text-align: left; }
+      .waitlist-form.narrow { max-width: 430px; margin-left: auto; margin-right: auto; }
+      .waitlist-form input[type="text"], .waitlist-form input[type="email"] { font: inherit; font-size: 0.88rem; padding: 0.6rem 0.85rem; border: 1px solid #cfc9b4; border-radius: 3px; background: #fffdf7; color: var(--navy); width: 100%; box-sizing: border-box; }
+      .waitlist-form input::placeholder { color: #8a8574; }
+      .waitlist-form input:focus { outline: 2px solid var(--gold); outline-offset: -1px; border-color: var(--gold); }
+      .wl-success { margin-top: 1.3rem; color: var(--navy); font-weight: 600; text-align: center; }
+
+      /* ---------- Product card ---------- */
+      .product {
+        background: var(--card);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+      }
+      .product-art {
+        background:
+          radial-gradient(ellipse at 30% 20%, rgba(201, 162, 39, 0.14), transparent 55%),
+          linear-gradient(160deg, #1b3560, #14294d 60%, #0e1f3c);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.5rem;
+        min-height: 320px;
+      }
+      .product-art svg { width: min(230px, 70%); height: auto; }
+      .product-body { padding: 2.6rem 2.4rem; }
+      .product-body h2 {
+        font-size: 2.1rem;
+        font-weight: 600;
+        line-height: 1.15;
+      }
+      .product-tag {
+        font-size: 0.74rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 0.6rem;
+      }
+      .product-desc { color: var(--ink-soft); margin: 1rem 0 0; font-size: 1.02rem; }
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 0.9rem;
+        margin-top: 1.6rem;
+        flex-wrap: wrap;
+      }
+      .price {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1;
+      }
+      .price-note { color: var(--ink-soft); font-size: 0.92rem; }
+      .ship-chip {
+        display: inline-block;
+        border: 1px solid var(--gold);
+        color: var(--navy);
+        font-size: 0.76rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 0.32rem 0.7rem;
+        margin-top: 1rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        .ship-chip { color: var(--gold-soft); }
+      }
+
+      .calc {
+        margin-top: 1.9rem;
+        padding-top: 1.6rem;
+        border-top: 1px solid var(--line);
+        display: flex;
+        align-items: flex-end;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+      }
+      .calc label {
+        display: block;
+        font-size: 0.74rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--ink-soft);
+        margin-bottom: 0.5rem;
+      }
+      .qty {
+        display: inline-flex;
+        align-items: stretch;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .qty button {
+        width: 42px;
+        border: 0;
+        background: transparent;
+        font-size: 1.25rem;
+        color: var(--navy);
+        cursor: pointer;
+        font-family: inherit;
+        line-height: 1;
+      }
+      .qty button:hover { color: var(--gold); }
+      .qty button:focus-visible, .qty input:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+      .qty input {
+        width: 58px;
+        border: 0;
+        border-left: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+        background: transparent;
+        text-align: center;
+        font-family: inherit;
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--ink);
+        padding: 0.55rem 0;
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+      .qty input::-webkit-outer-spin-button,
+      .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+      .total-box { min-width: 110px; }
+      .total-amount {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.1;
+      }
+      .buy-row { margin-top: 1.8rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+      .buy-btn {
+        display: inline-block;
+        background: var(--navy-deep);
+        color: #f7f2df;
+        text-decoration: none;
+        font-size: 0.88rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 1rem 2.4rem;
+        border: 1px solid var(--navy-deep);
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      @media (prefers-color-scheme: light) {
+        .buy-btn { background: #14294d; border-color: #14294d; }
+      }
+      .buy-btn:hover { background: var(--gold); border-color: var(--gold); color: #14294d; }
+      .buy-note { font-size: 0.88rem; color: var(--ink-soft); }
+
+      /* ---------- Singles ---------- */
+      .singles { margin-top: 4.5rem; }
+      .singles-head { text-align: center; margin-bottom: 2.2rem; }
+      .singles-head h2 { font-size: clamp(2rem, 4.5vw, 2.7rem); font-weight: 600; }
+      .singles-head p { color: var(--ink-soft); max-width: 32rem; margin: 0.7rem auto 0; }
+      .tiers {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.4rem;
+      }
+      .tier {
+        background: var(--card);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 2.1rem 1.8rem 2.3rem;
+        text-align: center;
+        position: relative;
+      }
+      .tier svg { width: 74px; height: 74px; margin-bottom: 0.6rem; }
+      .tier .tier-photo {
+        display: block;
+        width: min(260px, 100%);
+        height: auto;
+        margin: 0 auto 1rem;
+        border: 1px solid var(--line);
+        background: #ffffff;
+      }
+      .tier svg [stroke="#14294d"] { stroke: var(--navy); }
+      .tier h3 { font-size: 1.55rem; font-weight: 600; }
+      .tier .tier-price {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-top: 0.4rem;
+      }
+      .tier .tier-price small { font-size: 0.95rem; font-weight: 500; color: var(--ink-soft); }
+      .tier p { color: var(--ink-soft); margin: 0.7rem 0 0; font-size: 0.98rem; }
+      .soon {
+        display: inline-block;
+        margin-top: 1.3rem;
+        background: var(--gold);
+        color: #14294d;
+        font-size: 0.72rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 0.42rem 0.9rem;
+      }
+
+      /* ---------- More products ---------- */
+      .product.large-bag, .product.polishing, .product.glass { margin-top: 4.5rem; }
+      .tiers--duo {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ---------- Shipping note ---------- */
+      .ship-note {
+        margin-top: 4rem;
+        border: 1px solid var(--gold);
+        background: var(--card);
+        padding: 2rem 2.2rem;
+        text-align: center;
+      }
+      .ship-note h2 { font-size: 1.7rem; font-weight: 600; }
+      .ship-note p { color: var(--ink-soft); max-width: 36rem; margin: 0.6rem auto 0; }
+
+      /* ---------- Footer (matches the home page footer exactly) ---------- */
+      footer {
+        background: var(--footer-bg);
+        color: var(--footer-ink);
+        padding: 2.8rem 0 2.2rem;
+        margin-top: 0;
+      }
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0;
+      }
+      .logo-mark.on-dark { color: var(--footer-ink); }
+      .footer-brand {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        letter-spacing: 0.04em;
+        color: var(--footer-ink);
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+      footer p {
+        font-size: 0.92rem;
+        color: rgba(238, 240, 245, 0.65);
+        max-width: 520px;
+        margin: 0;
+        margin-top: 0.6rem;
+        line-height: 1.6;
+      }
+      @media (prefers-color-scheme: dark) {
+        footer p { color: rgba(223, 230, 242, 0.6); }
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        margin: 1.4rem 0 0.4rem;
+      }
+      .footer-links a {
+        text-decoration: none;
+        font-size: 0.82rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 400;
+        padding: 0.4rem 0.8rem;
+        color: var(--footer-ink);
+      }
+      .footer-links a:hover { color: var(--gold); }
+      .footer-bottom {
+        border-top: 1px solid rgba(238, 240, 245, 0.18);
+        margin-top: 1.6rem;
+        padding-top: 1.2rem;
+        font-size: 0.88rem;
+        color: rgba(238, 240, 245, 0.65);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      @media (prefers-color-scheme: dark) {
+        .footer-bottom { color: rgba(223, 230, 242, 0.6); }
+      }
+      @media (max-width: 560px) {
+        .footer-bottom { justify-content: center; text-align: center; }
+      }
+
+      @media (max-width: 760px) {
+        .product { grid-template-columns: 1fr; }
+        .product-art { min-height: 240px; }
+        .product-body { padding: 2rem 1.5rem; }
+        .tiers { grid-template-columns: 1fr; }
+        .tiers--duo { grid-template-columns: 1fr; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .buy-btn { transition: none; }
+      }
+    
+      /* ---------- Nav: all five links stay on one line ---------- */
+      @media (max-width: 860px) {
+        nav.main { flex-wrap: nowrap; gap: 0.1rem; justify-content: center; }
+        nav.main a { white-space: nowrap; font-size: 0.78rem; letter-spacing: 0.08em; padding: 0.45rem 0.34rem; }
+      }
+
+      /* ---------- Region toggle (Canada / US) ---------- */
+      .region-toggle { display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin: 0 auto 1.2rem; padding: 0 1rem; }
+      .region-toggle .rt-label { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; }
+      .region-toggle .rt-group { display: inline-flex; border: 1.5px solid #C9A227; border-radius: 999px; overflow: hidden; }
+      .region-toggle .region-btn { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: inherit; font: inherit; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.05rem; cursor: pointer; }
+      .region-toggle .region-btn.active { background: #C9A227; color: #14294D; }
+      .region-note { text-align: center; font-size: 0.88rem; opacity: 0.8; margin: -0.4rem auto 1.6rem; padding: 0 1rem; }
+</style>
+  
+    <style>
+      .rock-photo {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 0.5rem; width: min(260px, 100%); aspect-ratio: 4 / 3; margin: 0 auto 1rem;
+        border: 1px dashed var(--line); background: var(--paper); color: var(--ink-soft);
+      }
+      .rock-photo svg { width: 64px; height: 64px; }
+      .rock-photo span { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; }
+      .rock-card .buy-btn { margin-top: 1.2rem; padding: 0.8rem 1.6rem; font-size: 0.8rem; }
+      .sold-tag {
+        display: inline-block; margin-top: 1.2rem; background: var(--gold); color: #14294d;
+        font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600;
+        padding: 0.8rem 1.6rem;
+      }
+      .back-shop { text-align: center; margin-top: 4rem; }
+    </style>
+  </head>
+  <body>
+    <div class="announce" data-ca-text="Free shipping anywhere in Canada — on every order. Tracking included." data-us-text="Shipping is included in every US price — on every order. Tracking included.">Free shipping anywhere in Canada — on every order. Tracking included.</div>
+
+    <header class="site">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html" aria-label="Pretty Bags of Rocks — home">
+          <svg class="logo-mark" width="84" height="84" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <circle class="logo-ring" cx="100" cy="100" r="95" />
+            <circle class="logo-ring" cx="100" cy="100" r="63" />
+            <path id="arcTopH" d="M37.7,143.6 A76,76 0 1,1 162.3,143.6" fill="none" />
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="208" lengthAdjust="spacing"><textPath href="#arcTopH" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath></text>
+            <path id="arcBotH" d="M27.9,150.4 A88,88 0 0,0 172.1,150.4" fill="none" />
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="140" lengthAdjust="spacing"><textPath href="#arcBotH" startOffset="50%" text-anchor="middle">OF ROCKS</textPath></text>
+            <g class="logo-rock">
+              <path d="M63 118 L74 84 L96 66 L122 72 L138 96 L132 122 L104 134 L78 130 Z" />
+              <path d="M74 84 L100 99 L96 66" />
+              <path d="M100 99 L122 72" />
+              <path d="M100 99 L104 134" />
+              <path d="M100 99 L132 122" />
+            </g>
+          </svg>
+          <span class="brand-col">
+            <span class="brand-name">Pretty Bags of Rocks</span>
+            <span class="brand-tag">Polished rocks, gathered in small bags — shipped anywhere in Canada and the US.</span>
+          </span>
+        </a>
+        <nav class="main" id="mainNav" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="shop.html" aria-current="page">Shop</a>
+          <a href="about.html">About</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="shop.html" class="btn small header-cta">Shop the Bags</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-head">
+        <h1>One-of-a-Kind Singles</h1>
+        <p>Individual polished stones, each one completely unique. Every single is photographed on its own, so the rock you see is the rock that arrives.</p>
+        <div class="rule" aria-hidden="true"><span></span></div>
+      </div>
+
+      <div class="waitlist-note" role="note">
+        <p>Pre-orders are open! Our first batch ships in 30–40 days — we can't rush a batch, but we want to make sure everyone can have their rocks.</p>
+      </div>
+
+      <div class="region-toggle" role="group" aria-label="Choose your country for pricing and checkout">
+        <span class="rt-label">Shopping from</span>
+        <span class="rt-group">
+          <button type="button" class="region-btn active" data-region="CA" aria-pressed="true">Canada</button>
+          <button type="button" class="region-btn" data-region="US" aria-pressed="false">United States</button>
+        </span>
+      </div>
+      <p class="region-note" data-ca-text="Canadian prices - free shipping anywhere in Canada. Taxes are added at checkout." data-us-text="US prices - shipping is included in the price. Prices are in Canadian dollars.">Canadian prices - free shipping anywhere in Canada. Taxes are added at checkout.</p>
+
+      <section class="singles" aria-labelledby="medium-title">
+        <div class="singles-head">
+          <h2 id="medium-title">Medium Singles</h2>
+          <p>Palm-sized — a satisfying weight in the hand, perfect for a desk or pocket.</p>
+          <div class="rule" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="tiers">
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Medium Single No. 1</h3>
+            <div class="tier-price"><span data-ca-text="$65" data-us-text="$85">$65</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a medium single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/5h88CSYw" data-ca-href="https://square.link/u/5h88CSYw" data-us-href="https://square.link/u/aetScRz3">PRE ORDER NOW</a>
+          </article>
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Medium Single No. 2</h3>
+            <div class="tier-price"><span data-ca-text="$65" data-us-text="$85">$65</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a medium single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/5h88CSYw" data-ca-href="https://square.link/u/5h88CSYw" data-us-href="https://square.link/u/aetScRz3">PRE ORDER NOW</a>
+          </article>
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Medium Single No. 3</h3>
+            <div class="tier-price"><span data-ca-text="$65" data-us-text="$85">$65</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a medium single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/5h88CSYw" data-ca-href="https://square.link/u/5h88CSYw" data-us-href="https://square.link/u/aetScRz3">PRE ORDER NOW</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="singles" aria-labelledby="large-title">
+        <div class="singles-head">
+          <h2 id="large-title">Large Singles</h2>
+          <p>A statement piece — the kind of stone a shelf or mantle is built around.</p>
+          <div class="rule" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="tiers">
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Large Single No. 1</h3>
+            <div class="tier-price"><span data-ca-text="$95" data-us-text="$115">$95</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a large single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/rjvlbKsH" data-ca-href="https://square.link/u/rjvlbKsH" data-us-href="https://square.link/u/jptmV5oS">PRE ORDER NOW</a>
+          </article>
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Large Single No. 2</h3>
+            <div class="tier-price"><span data-ca-text="$95" data-us-text="$115">$95</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a large single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/rjvlbKsH" data-ca-href="https://square.link/u/rjvlbKsH" data-us-href="https://square.link/u/jptmV5oS">PRE ORDER NOW</a>
+          </article>
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Large Single No. 3</h3>
+            <div class="tier-price"><span data-ca-text="$95" data-us-text="$115">$95</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a large single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/rjvlbKsH" data-ca-href="https://square.link/u/rjvlbKsH" data-us-href="https://square.link/u/jptmV5oS">PRE ORDER NOW</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="singles" aria-labelledby="showpiece-title">
+        <div class="singles-head">
+          <h2 id="showpiece-title">Showpiece Singles</h2>
+          <p>The finest single stones from the tumbler — rare colours, patterns, and size.</p>
+          <div class="rule" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="tiers">
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Showpiece No. 1</h3>
+            <div class="tier-price"><span data-ca-text="$145" data-us-text="$165">$145</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a showpiece single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/npoE0I3Q" data-ca-href="https://square.link/u/npoE0I3Q" data-us-href="https://square.link/u/F8Lommww">PRE ORDER NOW</a>
+          </article>
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Photo coming soon</span></div>
+            <h3>Showpiece No. 2</h3>
+            <div class="tier-price"><span data-ca-text="$145" data-us-text="$165">$145</span> <small>CAD</small></div>
+            <p>One of a kind — the rock in the photo is the rock you get. Photos arrive with the first finished batch; pre-ordering reserves a showpiece single for you.</p>
+            <a class="buy-btn" href="https://square.link/u/npoE0I3Q" data-ca-href="https://square.link/u/npoE0I3Q" data-us-href="https://square.link/u/F8Lommww">PRE ORDER NOW</a>
+          </article>
+          <article class="tier rock-card">
+            <div class="rock-photo"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><polygon points="50,16 76,38 67,72 50,84 32,70 24,38" /><polyline points="24,38 41,49 50,16" /><polyline points="76,38 59,50 50,16" /><polyline points="41,49 59,50 50,84" /></g></svg><span>Sold</span></div>
+            <h3>Showpiece — Sold</h3>
+            <div class="tier-price"><span data-ca-text="$145" data-us-text="$165">$145</span> <small>CAD</small></div>
+            <p>Sold rocks stay on display here for 30 days, marked Sold Out — a little gallery of where they've gone.</p>
+            <span class="sold-tag">Sold Out</span>
+          </article>
+        </div>
+      </section>
+
+      <p class="back-shop"><a class="btn small" href="shop.html">Back to Shop</a></p>
+    </main>
+
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-inner">
+          <svg class="logo-mark on-dark" width="92" height="92" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <circle class="logo-ring" cx="100" cy="100" r="95" />
+            <circle class="logo-ring" cx="100" cy="100" r="63" />
+            <path id="arcTopF" d="M37.7,143.6 A76,76 0 1,1 162.3,143.6" fill="none" />
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="208" lengthAdjust="spacing"><textPath href="#arcTopF" startOffset="50%" text-anchor="middle">PRETTY BAGS</textPath></text>
+            <path id="arcBotF" d="M27.9,150.4 A88,88 0 0,0 172.1,150.4" fill="none" />
+            <text class="logo-text" font-size="17" style="letter-spacing:2px" textLength="140" lengthAdjust="spacing"><textPath href="#arcBotF" startOffset="50%" text-anchor="middle">OF ROCKS</textPath></text>
+            <g class="logo-rock">
+              <path d="M63 118 L74 84 L96 66 L122 72 L138 96 L132 122 L104 134 L78 130 Z" />
+              <path d="M74 84 L100 99 L96 66" />
+              <path d="M100 99 L122 72" />
+              <path d="M100 99 L104 134" />
+              <path d="M100 99 L132 122" />
+            </g>
+          </svg>
+          <div class="footer-brand">Pretty Bags of Rocks</div>
+          <p>Polished rocks, gathered in small bags — shipped anywhere in Canada and the US. Pretty rocks. Honest bags. Tumbled smooth, packed by hand in Saskatoon.</p>
+          <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>Pretty Bags of Rocks • Saskatoon, Saskatchewan • Shipping anywhere in Canada and the US</span>
+          <span>Small bags <span data-ca-text="$50" data-us-text="$70">$50</span> &nbsp;•&nbsp; Large singles from <span data-ca-text="$65" data-us-text="$85">$65</span> &nbsp;•&nbsp; <span data-ca-text="Free shipping" data-us-text="Shipping included">Free shipping</span> &nbsp;•&nbsp; Tracking included &nbsp;•&nbsp; <a href="unsubscribe.html">Unsubscribe</a></span>
+        </div>
+      </div>
+    </footer>
+
+    
+    
+      <script>
+      (function () {
+        var KEY = "pbr-region";
+        function get() { try { return localStorage.getItem(KEY) === "US" ? "US" : "CA"; } catch (e) { return "CA"; } }
+        function apply(r) {
+          var us = r === "US";
+          document.querySelectorAll("[data-ca-href]").forEach(function (el) {
+            el.setAttribute("href", us ? el.getAttribute("data-us-href") : el.getAttribute("data-ca-href"));
+          });
+          document.querySelectorAll("[data-ca-text]").forEach(function (el) {
+            el.innerHTML = us ? el.getAttribute("data-us-text") : el.getAttribute("data-ca-text");
+          });
+          document.querySelectorAll(".region-btn").forEach(function (b) {
+            var on = b.getAttribute("data-region") === r;
+            b.classList.toggle("active", on);
+            b.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          if (window.pbrSetPrice) window.pbrSetPrice(us ? 70 : 50);
+        }
+        document.querySelectorAll(".region-btn").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var r = b.getAttribute("data-region");
+            try { localStorage.setItem(KEY, r); } catch (e) {}
+            apply(r);
+          });
+        });
+        apply(get());
+      })();
+    </script>
+</body>
+</html>
